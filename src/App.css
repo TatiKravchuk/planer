@@ -1,0 +1,13 @@
+.App {
+  background-color: rgb(46, 139, 87, 0.1);
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+.main {
+  display: flex;
+}
+
+.main_box {
+  padding: 20px;
+}

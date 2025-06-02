@@ -1,0 +1,49 @@
+.navbar {
+  min-height: calc(100vh - 50px);
+  width: 250px;
+  background-color: white;
+}
+
+.navlist {
+  margin: 0;
+  padding: 15px;
+  height: 100%;
+  list-style-type: none;
+  box-shadow: 1px 0 10px SeaGreen;
+    box-sizing: border-box;
+}
+
+.navitem {
+  box-sizing: border-box;
+  padding: 10px 5px;
+  color: seagreen;
+  font-family: cursive;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.navitem:hover {
+  box-sizing: border-box;
+  box-shadow: 1px 1px 10px seagreen;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+.navitem_active {
+  box-sizing: border-box;
+  padding: 10px 5px;
+  color: seagreen;
+  font-family: cursive;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 1px 1px 10px seagreen;
+  border-radius: 10px;
+}
+
+.navitem:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.navitem_active:not(:last-child) {
+  margin-bottom: 5px;
+}

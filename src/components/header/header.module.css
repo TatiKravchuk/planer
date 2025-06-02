@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  background-color: SeaGreen;
+  color: white;
+}
+
+.title {
+  display: inline-block;
+  margin: 0;
+  font-family: cursive;
+  letter-spacing: 2px;
+}

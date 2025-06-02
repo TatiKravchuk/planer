@@ -1,0 +1,65 @@
+.current {
+  margin-bottom: 80px;
+}
+
+.input_add {
+  box-sizing: border-box;
+  height: 40px;
+  min-width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-family: cursive;
+  background-color: white;
+  width: calc(100vw - 340px);
+  border-radius: 10px;
+  border: 2px solid rgb(46, 139, 87, 0.5);
+  color: seagreen;
+}
+
+.input_add::placeholder {
+  color: seagreen;
+  opacity: 0.5;
+}
+
+.input_add:active {
+  color: seagreen;
+  border-color: seagreen;
+  outline: none;
+  box-shadow: 3px 3px 5px seagreen;
+}
+
+.input_add:focus {
+  color: seagreen;
+  border-color: seagreen;
+  outline: none;
+  box-shadow: 3px 3px 5px seagreen;
+}
+
+.button_add {
+  width: 150px;
+  height: 30px;
+  margin-right: 20px;
+  font-family: cursive;
+  outline: 0;
+  background-color: seagreen;
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px seagreen;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.button_delete {
+  width: 150px;
+  height: 30px;
+  font-family: cursive;
+  outline: 0;
+  background-color: seagreen;
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px seagreen;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}

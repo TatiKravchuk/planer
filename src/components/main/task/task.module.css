@@ -1,0 +1,176 @@
+.task_box {
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid seagreen;
+}
+
+.input_task {
+  box-sizing: border-box;
+  height: 40px;
+  min-width: 100%;
+  padding: 15px;
+  font-family: cursive;
+  background-color: white;
+  width: calc(100vw - 340px);
+  border-radius: 9px;
+  border: 1px solid rgb(46, 139, 87, 0.5);
+  color: seagreen;
+}
+
+.input_task:focus {
+  outline: none;
+}
+
+.expired_task {
+  color: red;
+}
+
+.task_buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.sort_buttons {
+  display: flex;
+  align-items: center;
+}
+
+.important_button {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 30px;
+  margin-right: 20px;
+  background-image: url("./images/starBlack.png");
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.important_button_active {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 30px;
+  margin-right: 20px;
+  background-image: url("./images/starYellow.png");
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.important_button_active:active {
+  background-image: url("./images/star.png");
+  border: 0;
+  transition: 0.3s;
+}
+
+.important_button:hover {
+  background-image: url("./images/starYellow.png");
+  border: 0;
+  transition: 0.3s;
+}
+
+.important_button:active {
+  background-image: url("./images/star.png");
+  border: 0;
+  transition: 0.3s;
+}
+
+.done_button {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 30px;
+  margin-right: 20px;
+  background-image: url("./images/checkmarkBlack.png");
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.done_button_active {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 30px;
+  margin-right: 20px;
+  background-image: url("./images/checkmarkGreen.png");
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.done_button:hover {
+  background-image: url("./images/checkmarkGreen.png");
+  border: 0;
+  transition: 0.3s;
+}
+
+.done_button:active {
+  background-image: url("./images/checkmark.png");
+  border: 0;
+  transition: 0.3s;
+}
+
+.done_button_active:active {
+  background-image: url("./images/checkmark.png");
+  border: 0;
+  transition: 0.3s;
+}
+
+.task_date {
+  padding: 5px;
+  font-family: cursive;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.delete_button {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 30px;
+  background-image: url("./images/deleteBlack.png");
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete_button:hover {
+  background-image: url("./images/deleteRed.png");
+  border: 0;
+  transition: 0.3s;
+}
+
+.delete_button:active {
+  background-image: url("./images/delete.png");
+  border: 0;
+  transition: 0.3s;
+}
+
+.tooltip_text {
+  visibility: hidden;
+  position: absolute;
+  transform: translateX(-50%);
+  background-color: seagreen;
+  color: white;
+  padding: 5px 10px 7px;
+  border-radius: 5px;
+  font-family: cursive;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.important_button:hover .tooltip_text,
+.done_button:hover .tooltip_text,
+.delete_button:hover .tooltip_text {
+  visibility: visible;
+  top: 120%;
+}
