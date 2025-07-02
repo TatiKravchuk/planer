@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/planer/static/css/main.a8097f97.css",
-    "main.js": "/planer/static/js/main.61c25bb2.js",
+    "main.js": "/planer/static/js/main.342a86f9.js",
     "static/js/453.ef03b5c0.chunk.js": "/planer/static/js/453.ef03b5c0.chunk.js",
     "static/media/ClickClack.ttf": "/planer/static/media/ClickClack.592bc9c3363d69dcd208.ttf",
     "static/media/tasks.svg": "/planer/static/media/tasks.33576d5b64429e5c615c.svg",
@@ -12,11 +12,11 @@
     "index.html": "/planer/index.html",
     "static/media/time.svg": "/planer/static/media/time.ab9f5116e1eaaa3cfd16.svg",
     "main.a8097f97.css.map": "/planer/static/css/main.a8097f97.css.map",
-    "main.61c25bb2.js.map": "/planer/static/js/main.61c25bb2.js.map",
+    "main.342a86f9.js.map": "/planer/static/js/main.342a86f9.js.map",
     "453.ef03b5c0.chunk.js.map": "/planer/static/js/453.ef03b5c0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a8097f97.css",
-    "static/js/main.61c25bb2.js"
+    "static/js/main.342a86f9.js"
   ]
 }
