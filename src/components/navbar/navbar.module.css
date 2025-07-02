@@ -120,4 +120,34 @@ background-image: url(../assets/images/star.svg);
     width: 100vw;
     min-width: 100vw;
   }
+
+  .navbar_collapsed {
+    width: 45px;
+    min-width: 45px;
+  }
+
+  .navbutton {
+    margin: 20px 5px 0 5px;
+    width: 35px;
+    height: 35px;
+    background-size: 35px;
+  }
+
+  .navlist {
+    padding: 5px;
+  }
+
+  .navitem {
+    padding-left: 30px;
+    padding-right: 5px;
+    background-position: left 5px center;
+    background-size: 20px;
+  }
+
+  .navitem_active {
+    padding-left: 30px;
+    padding-right: 5px;
+    background-position: left 5px center;
+    background-size: 20px;
+  }
 }

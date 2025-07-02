@@ -129,6 +129,8 @@
   font-family: 'ClickClack', 'Times New Roman', Times, serif;
   border-radius: 10px;
   border: 1px solid black;
+  font-size: 15px;
+  width: 110px;
 }
 
 .delete_button {
@@ -186,5 +188,6 @@
   .task_date {
     width: 80px;
     box-sizing: border-box;
+    font-size: 10px;
   }
 }
