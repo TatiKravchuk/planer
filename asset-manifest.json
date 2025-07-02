@@ -1,15 +1,22 @@
 {
   "files": {
-    "main.css": "/planer/static/css/main.689b5926.css",
-    "main.js": "/planer/static/js/main.959c5133.js",
+    "main.css": "/planer/static/css/main.cfbb6cd4.css",
+    "main.js": "/planer/static/js/main.c86dab47.js",
     "static/js/453.ef03b5c0.chunk.js": "/planer/static/js/453.ef03b5c0.chunk.js",
+    "static/media/ClickClack.ttf": "/planer/static/media/ClickClack.592bc9c3363d69dcd208.ttf",
+    "static/media/tasks.svg": "/planer/static/media/tasks.33576d5b64429e5c615c.svg",
+    "static/media/checkmark.svg": "/planer/static/media/checkmark.9d1d3204f7bea4c81597.svg",
+    "static/media/star.svg": "/planer/static/media/star.8a9fa46e6a054fc1d4a8.svg",
+    "static/media/menu.svg": "/planer/static/media/menu.f95a31f645a1918721a7.svg",
+    "static/media/exclamationMark.svg": "/planer/static/media/exclamationMark.ee47fda2c42c2a6842c1.svg",
     "index.html": "/planer/index.html",
-    "main.689b5926.css.map": "/planer/static/css/main.689b5926.css.map",
-    "main.959c5133.js.map": "/planer/static/js/main.959c5133.js.map",
+    "static/media/time.svg": "/planer/static/media/time.ab9f5116e1eaaa3cfd16.svg",
+    "main.cfbb6cd4.css.map": "/planer/static/css/main.cfbb6cd4.css.map",
+    "main.c86dab47.js.map": "/planer/static/js/main.c86dab47.js.map",
     "453.ef03b5c0.chunk.js.map": "/planer/static/js/453.ef03b5c0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.689b5926.css",
-    "static/js/main.959c5133.js"
+    "static/css/main.cfbb6cd4.css",
+    "static/js/main.c86dab47.js"
   ]
 }
