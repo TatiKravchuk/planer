@@ -9,7 +9,7 @@ function Navbar({ setCurrentFilter }) {
   const handleClick = (item) => {
     setActiveItem(item);
     setCurrentFilter(item);
-    if (window.innerWidth <= 640) {
+    if (window.matchMedia("(max-width: 640px)").matches) {
       setWasCollapsed(false);
       setCollapsed(true);
   }};
