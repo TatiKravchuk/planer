@@ -1,7 +1,13 @@
 .tasks_list {
   height: calc(100vh - 240px);
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   border: 1px solid rgb(111, 78, 55);
   padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .tasks_list {
+    height: calc(100vh - 290px);
+  }
 }

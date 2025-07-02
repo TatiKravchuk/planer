@@ -8,46 +8,73 @@ function Navbar({ setCurrentFilter }) {
 
   const handleClick = (item) => {
     setActiveItem(item);
+    setCurrentFilter(item);
+    if (window.innerWidth <= 640) {
+      setWasCollapsed(false);
+      setCollapsed(true);
+  }};
+
+  const [collapsed, setCollapsed] = useState(window.innerWidth <= 640);
+  const [wasCollapsed, setWasCollapsed] = useState(false);
+
+  const toggleMenu = () => {
+    setWasCollapsed(collapsed);
+    setCollapsed(!collapsed);
   };
 
   return(
-    <nav className={style.navbar}>
-      <button className={style.navbutton}></button>
+    <nav className={collapsed ? style.navbar_collapsed : style.navbar}>
+      <button className={style.navbutton} onClick={toggleMenu}></button>
       <ul className={style.navlist}>
         <li
           className={`${activeItem === "all" ? style.navitem_active : style.navitem}
           ${style.navall}`}
-          onClick={() => {setCurrentFilter('all'); handleClick("all")}}
-        >
-          Все задачи
+          onClick={() => {
+            handleClick("all");
+          }}>
+          {collapsed ? null : <span
+          className={wasCollapsed ? style.item_text : style.appear_instantly}
+          >Все задачи</span>}
         </li>
         <li
           className={`${activeItem === "current" ? style.navitem_active : style.navitem}
           ${style.navcurrent}`}
-          onClick={() => {setCurrentFilter('current'); handleClick("current")}}
-        >
-          Текущие задачи
+          onClick={() => {
+            handleClick("current");
+          }}>
+          {collapsed ? null : <span
+          className={wasCollapsed ? style.item_text : style.appear_instantly}
+          >Текущие задачи</span>}
         </li>
         <li
           className={`${activeItem === "today" ? style.navitem_active : style.navitem}
           ${style.navtoday}`}
-          onClick={() => {setCurrentFilter('today'); handleClick("today")}}
-        >
-          Задачи на сегодня
+          onClick={() => {
+            handleClick("today");
+          }}>
+          {collapsed ? null : <span
+          className={wasCollapsed ? style.item_text : style.appear_instantly}
+          >Задачи на сегодня</span>}
         </li>
         <li
           className={`${activeItem === "important" ? style.navitem_active : style.navitem}
           ${style.navimportant}`}
-          onClick={() => {setCurrentFilter('important'); handleClick("important")}}
-        >
-          Важные задачи
+          onClick={() => {
+            handleClick("important");
+          }}>
+          {collapsed ? null : <span
+          className={wasCollapsed ? style.item_text : style.appear_instantly}
+          >Важные задачи</span>}
         </li>
         <li
           className={`${activeItem === "completed" ? style.navitem_active : style.navitem}
           ${style.navcompleted}`}
-          onClick={() => {setCurrentFilter('completed'); handleClick("completed")}}
-        >
-          Завершенные задачи
+          onClick={() => {
+            handleClick("completed");
+          }}>
+          {collapsed ? null : <span
+          className={wasCollapsed ? style.item_text : style.appear_instantly}
+          >Завершенные задачи</span>}
         </li>
       </ul>
     </nav>
