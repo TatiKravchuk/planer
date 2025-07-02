@@ -186,7 +186,7 @@
 
 @media (max-width: 640px) {
   .task_date {
-    width: 80px;
+    width: 100px;
     box-sizing: border-box;
     font-size: 10px;
   }
