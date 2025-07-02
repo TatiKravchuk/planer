@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Task from "../task/task";
+import style from "./allTasks.module.css"
 
 function AllTasks({ currentFilter }) {
   const [list, setList] = useState([]);
@@ -43,7 +44,7 @@ function AllTasks({ currentFilter }) {
   };
 
   return (
-    <div>
+    <div className={style.tasks_list}>
       {filterTasks(list).map((task) => (
         <Task
           text={task.text}

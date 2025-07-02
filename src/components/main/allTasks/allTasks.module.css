@@ -1,0 +1,7 @@
+.tasks_list {
+  height: calc(100vh - 240px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border: 1px solid rgb(111, 78, 55);
+  padding: 10px;
+}

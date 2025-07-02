@@ -1,8 +1,11 @@
 .task_box {
-  margin-bottom: 20px;
   background-color: white;
   border-radius: 10px;
-  border: 1px solid seagreen;
+  border: 1px solid rgb(111, 78, 55);
+}
+
+.task_box:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .input_task {
@@ -10,12 +13,11 @@
   height: 40px;
   min-width: 100%;
   padding: 15px;
-  font-family: cursive;
+  font-family: 'ClickClack', 'Times New Roman', Times, serif;
   background-color: white;
-  width: calc(100vw - 340px);
   border-radius: 9px;
-  border: 1px solid rgb(46, 139, 87, 0.5);
-  color: seagreen;
+  border: 1px solid rgb(111, 78, 55);
+  color: rgb(111, 78, 55);
 }
 
 .input_task:focus {
@@ -46,7 +48,7 @@
   border: 0;
   border-radius: 30px;
   margin-right: 20px;
-  background-image: url("./images/starBlack.png");
+  background-image: url("../../assets/images/starBlack.png");
   cursor: pointer;
   transition: 0.3s;
 }
@@ -57,25 +59,25 @@
   border: 0;
   border-radius: 30px;
   margin-right: 20px;
-  background-image: url("./images/starYellow.png");
+  background-image: url("../../assets/images/starYellow.png");
   cursor: pointer;
   transition: 0.3s;
 }
 
 .important_button_active:active {
-  background-image: url("./images/star.png");
+  background-image: url("../../assets/images/star.png");
   border: 0;
   transition: 0.3s;
 }
 
 .important_button:hover {
-  background-image: url("./images/starYellow.png");
+  background-image: url("../../assets/images/starYellow.png");
   border: 0;
   transition: 0.3s;
 }
 
 .important_button:active {
-  background-image: url("./images/star.png");
+  background-image: url("../../assets/images/star.png");
   border: 0;
   transition: 0.3s;
 }
@@ -88,7 +90,7 @@
   border: 0;
   border-radius: 30px;
   margin-right: 20px;
-  background-image: url("./images/checkmarkBlack.png");
+  background-image: url("../../assets/images/checkmarkBlack.png");
   cursor: pointer;
   transition: 0.3s;
 }
@@ -99,32 +101,32 @@
   border: 0;
   border-radius: 30px;
   margin-right: 20px;
-  background-image: url("./images/checkmarkGreen.png");
+  background-image: url("../../assets/images/checkmarkGreen.png");
   cursor: pointer;
   transition: 0.3s;
 }
 
 .done_button:hover {
-  background-image: url("./images/checkmarkGreen.png");
+  background-image: url("../../assets/images/checkmarkGreen.png");
   border: 0;
   transition: 0.3s;
 }
 
 .done_button:active {
-  background-image: url("./images/checkmark.png");
+  background-image: url("../../assets/images/checkmark.png");
   border: 0;
   transition: 0.3s;
 }
 
 .done_button_active:active {
-  background-image: url("./images/checkmark.png");
+  background-image: url("../../assets/images/checkmark.png");
   border: 0;
   transition: 0.3s;
 }
 
 .task_date {
   padding: 5px;
-  font-family: cursive;
+  font-family: 'ClickClack', 'Times New Roman', Times, serif;
   border-radius: 10px;
   border: 1px solid black;
 }
@@ -136,19 +138,19 @@
   height: 30px;
   border: 0;
   border-radius: 30px;
-  background-image: url("./images/deleteBlack.png");
+  background-image: url("../../assets/images/deleteBlack.png");
   cursor: pointer;
   transition: 0.3s;
 }
 
 .delete_button:hover {
-  background-image: url("./images/deleteRed.png");
+  background-image: url("../../assets/images/deleteRed.png");
   border: 0;
   transition: 0.3s;
 }
 
 .delete_button:active {
-  background-image: url("./images/delete.png");
+  background-image: url("../../assets/images/delete.png");
   border: 0;
   transition: 0.3s;
 }
@@ -157,11 +159,11 @@
   visibility: hidden;
   position: absolute;
   transform: translateX(-50%);
-  background-color: seagreen;
+  background-color: rgb(111, 78, 55);
   color: white;
   padding: 5px 10px 7px;
   border-radius: 5px;
-  font-family: cursive;
+  font-family: 'ClickClack', 'Times New Roman', Times, serif;
   font-size: 12px;
   letter-spacing: 0.5px;
   overflow: hidden;
@@ -173,4 +175,9 @@
 .delete_button:hover .tooltip_text {
   visibility: visible;
   top: 120%;
+}
+
+@font-face {
+  font-family: 'ClickClack';
+  src: url('../../assets/fonts/ClickClack.ttf') format("truetype");
 }

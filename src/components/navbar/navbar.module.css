@@ -1,43 +1,58 @@
 .navbar {
-  min-height: calc(100vh - 50px);
-  width: 250px;
+  width: 270px;
+  min-width: 270px;
   background-color: white;
+  box-shadow: 1px 0 10px rgb(111, 78, 55);
+}
+
+.navbutton {
+  margin: 20px 15px 0 15px;
+  width: 50px;
+  height: 50px;
+  background-image: url(../assets/images/menu.svg);
+  background-color: white;
+  border: 0;
+  cursor: pointer;
 }
 
 .navlist {
   margin: 0;
   padding: 15px;
-  height: 100%;
   list-style-type: none;
-  box-shadow: 1px 0 10px SeaGreen;
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .navitem {
   box-sizing: border-box;
-  padding: 10px 5px;
-  color: seagreen;
-  font-family: cursive;
+  padding: 10px 10px 10px 50px;
+  color: rgb(111, 78, 55);
+  font-family: 'ClickClack', 'Times New Roman', Times, serif;
   border-radius: 10px;
   cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: left 10px center;
+  background-size: 30px;
 }
 
 .navitem:hover {
   box-sizing: border-box;
-  box-shadow: 1px 1px 10px seagreen;
+  box-shadow: 1px 1px 10px rgb(111, 78, 55);
   border-radius: 10px;
   transition: 0.5s;
 }
 
 .navitem_active {
   box-sizing: border-box;
-  padding: 10px 5px;
-  color: seagreen;
-  font-family: cursive;
+  padding: 10px 10px 10px 50px;
+  color: rgb(111, 78, 55);
+  font-family: 'ClickClack', 'Times New Roman', Times, serif;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 1px 1px 10px seagreen;
+  box-shadow: 1px 1px 10px rgb(111, 78, 55);
   border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: left 10px center;
+  background-size: 30px;
 }
 
 .navitem:not(:last-child) {
@@ -46,4 +61,28 @@
 
 .navitem_active:not(:last-child) {
   margin-bottom: 5px;
+}
+
+.navall {
+  background-image: url(../assets/images/tasks.svg);
+}
+
+.navcurrent {
+  background-image: url(../assets/images/time.svg);
+}
+.navtoday {
+  background-image: url(../assets/images/exclamationMark.svg);
+}
+.navimportant {
+background-image: url(../assets/images/star.svg);
+
+}
+.navcompleted {
+  background-image: url(../assets/images/checkmark.svg);
+}
+
+
+@font-face {
+  font-family: 'ClickClack';
+  src: url('../assets/fonts/ClickClack.ttf') format("truetype");
 }

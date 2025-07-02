@@ -1,14 +1,20 @@
 .header {
+  /* position: sticky; */
   display: flex;
   justify-content: center;
   height: 50px;
-  background-color: SeaGreen;
+  background-color: rgb(111, 78, 55);
   color: white;
 }
 
 .title {
   display: inline-block;
   margin: 0;
-  font-family: cursive;
+  font-family: 'ClickClack', 'Times New Roman', Times, serif;
   letter-spacing: 2px;
+}
+
+@font-face {
+  font-family: 'ClickClack';
+  src: url('../assets/fonts/ClickClack.ttf') format("truetype");
 }

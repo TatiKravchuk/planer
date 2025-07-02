@@ -1,5 +1,5 @@
 .current {
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 .input_add {
@@ -8,58 +8,63 @@
   min-width: 100%;
   padding: 15px;
   margin-bottom: 20px;
-  font-family: cursive;
+  font-family: 'ClickClack', 'Times New Roman', Times, serif;
   background-color: white;
   width: calc(100vw - 340px);
   border-radius: 10px;
-  border: 2px solid rgb(46, 139, 87, 0.5);
-  color: seagreen;
+  border: 2px solid rgb(111, 78, 55);
+  color: rgb(111, 78, 55);
 }
 
 .input_add::placeholder {
-  color: seagreen;
+  color: rgb(111, 78, 55);
   opacity: 0.5;
 }
 
 .input_add:active {
-  color: seagreen;
-  border-color: seagreen;
+  color: rgb(111, 78, 55);
+  border-color: rgb(111, 78, 55);
   outline: none;
-  box-shadow: 3px 3px 5px seagreen;
+  box-shadow: 3px 3px 5px rgb(111, 78, 55);
 }
 
 .input_add:focus {
-  color: seagreen;
-  border-color: seagreen;
+  color: rgb(111, 78, 55);
+  border-color: rgb(111, 78, 55);
   outline: none;
-  box-shadow: 3px 3px 5px seagreen;
+  box-shadow: 3px 3px 5px rgb(111, 78, 55);
 }
 
 .button_add {
-  width: 150px;
+  width: 200px;
   height: 30px;
   margin-right: 20px;
-  font-family: cursive;
+  font-family: 'ClickClack', 'Times New Roman', Times, serif;
   outline: 0;
-  background-color: seagreen;
+  background-color: rgb(111, 78, 55);
   color: white;
   border: 0;
   border-radius: 10px;
-  box-shadow: 3px 3px 5px seagreen;
+  box-shadow: 3px 3px 5px rgb(111, 78, 55);
   cursor: pointer;
   letter-spacing: 0.5px;
 }
 
 .button_delete {
-  width: 150px;
+  width: 200px;
   height: 30px;
-  font-family: cursive;
+  font-family: 'ClickClack', 'Times New Roman', Times, serif;
   outline: 0;
-  background-color: seagreen;
+  background-color: rgb(111, 78, 55);
   color: white;
   border: 0;
   border-radius: 10px;
-  box-shadow: 3px 3px 5px seagreen;
+  box-shadow: 3px 3px 5px rgb(111, 78, 55);
   cursor: pointer;
   letter-spacing: 0.5px;
+}
+
+@font-face {
+  font-family: 'ClickClack';
+  src: url('../../assets/fonts/ClickClack.ttf') format("truetype");
 }
