@@ -181,3 +181,10 @@
   font-family: 'ClickClack';
   src: url('../../assets/fonts/ClickClack.ttf') format("truetype");
 }
+
+@media (max-width: 640px) {
+  .task_date {
+    width: 80px;
+    box-sizing: border-box;
+  }
+}
