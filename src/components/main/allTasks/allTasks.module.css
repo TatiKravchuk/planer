@@ -8,6 +8,7 @@
 
 @media (max-width: 768px) {
   .tasks_list {
-    height: calc(100vh - 290px);
+    height: calc(100vh - 340px);
+    margin-bottom: 50px;
   }
 }
