@@ -29,6 +29,7 @@
 }
 
 .task_buttons {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -155,28 +156,6 @@
   background-image: url("../../assets/images/delete.png");
   border: 0;
   transition: 0.3s;
-}
-
-.tooltip_text {
-  visibility: hidden;
-  position: absolute;
-  transform: translateX(-50%);
-  background-color: rgb(111, 78, 55);
-  color: white;
-  padding: 5px 10px 7px;
-  border-radius: 5px;
-  font-family: 'ClickClack', 'Times New Roman', Times, serif;
-  font-size: 12px;
-  letter-spacing: 0.5px;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.important_button:hover .tooltip_text,
-.done_button:hover .tooltip_text,
-.delete_button:hover .tooltip_text {
-  visibility: visible;
-  top: 120%;
 }
 
 @font-face {

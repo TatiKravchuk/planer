@@ -1,4 +1,12 @@
+ul, li {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
 .navbar {
+  display: flex;
+  flex-direction: column;
   width: 270px;
   min-width: 270px;
   background-color: white;
@@ -7,6 +15,9 @@
 }
 
 .navbar_collapsed {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 50px);
   width: 80px;
   min-width: 80px;
   transition: 0.3s ease-out;
@@ -109,6 +120,119 @@ background-image: url(../assets/images/star.svg);
   }
 }
 
+.extra_box {
+  position: relative;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.extrabtn {
+  margin: 0 15px 20px 15px;
+  width: calc(100% - 30px);
+  height: 50px;
+  font-family: 'ClickClack', 'Times New Roman', Times, serif;
+  font-size: 20px;
+  background-color: rgb(111, 78, 55);
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px rgb(111, 78, 55);
+}
+
+.button_text {
+  opacity: 0;
+  animation: butnText 0.3s forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes butnText {
+  to {
+    opacity: 1;
+  }
+}
+
+.extrabtn_icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url(../assets/images/plus.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
+}
+
+.nav_extralist {
+  position: absolute;
+  flex-direction: column;
+  gap: 10px;
+  bottom: 18px;
+  left: calc(100% + 10px);
+  padding: 15px;
+  font-family: 'ClickClack', 'Times New Roman', Times, serif;
+  background-color: white;
+  border-radius: 10px;
+  border: 3px solid rgb(111, 78, 55);
+  box-shadow: 5px 5px 10px rgb(111, 78, 55);
+  z-index: 9999;
+}
+
+.nav_extralist li {
+  white-space: nowrap;
+  width: fit-content;
+  color: rgb(111, 78, 55);
+  cursor: pointer;
+}
+
+.entertainments {
+  position: relative;
+}
+
+.entertainments_list {
+  position: absolute;
+  flex-direction: column;
+  gap: 10px;
+  bottom: -18px;
+  left: 100%;
+  transform: translateX(30px);
+  padding: 15px;
+  font-family: 'ClickClack', 'Times New Roman', Times, serif;
+  background-color: white;
+  border-radius: 10px;
+  border: 3px solid rgb(111, 78, 55);
+  box-shadow: 5px 5px 10px rgb(111, 78, 55);
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.entertainments_list li {
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  height: 30px;
+}
+
+.flowershop {
+  background-image: url(../assets/images/FlowerShop.png);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: left center;
+}
+
+.show {
+  display: flex;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.hide {
+  display: none;
+  animation: fadeOut 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
 
 @font-face {
   font-family: 'ClickClack';
@@ -116,6 +240,7 @@ background-image: url(../assets/images/star.svg);
 }
 
 @media (max-width: 640px) {
+
   .navbar {
     width: 100vw;
     min-width: 100vw;
@@ -140,14 +265,36 @@ background-image: url(../assets/images/star.svg);
   .navitem {
     padding-left: 30px;
     padding-right: 5px;
-    background-position: left 5px center;
+    background-position: left 7px center;
     background-size: 20px;
   }
 
   .navitem_active {
     padding-left: 30px;
     padding-right: 5px;
-    background-position: left 5px center;
+    background-position: left 7px center;
     background-size: 20px;
   }
+
+  .extra_box {
+    margin: auto 5px 70px 5px;
+  }
+
+  .extrabtn {
+    width: 35px;
+    height: 35px;
+    margin: 0;
+    box-shadow: 1px 1px 3px rgb(111, 78, 55);
+  }
+
+  .extrabtn_icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .nav_extralist {
+    bottom: 0;
+    box-shadow: 2px 2px 5px rgb(111, 78, 55);
+  }
+
 }
