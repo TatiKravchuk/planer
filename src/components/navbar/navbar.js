@@ -17,7 +17,6 @@ function Navbar({ setCurrentFilter }) {
   const [collapsed, setCollapsed] = useState(window.innerWidth <= 640);
   const [wasCollapsed, setWasCollapsed] = useState(false);
   const [showExtras, setShowExtras] = useState(false);
-  const [showEntertainment, setShowEntertainment] = useState(false);
 
   const toggleMenu = () => {
     setWasCollapsed(collapsed);
@@ -30,7 +29,6 @@ useEffect(() => {
   const handleClickOutside = (e) => {
     if (extraRef.current && !extraRef.current.contains(e.target)) {
       setShowExtras(false);
-      setShowEntertainment(false);
     }
   };
 
@@ -98,13 +96,7 @@ useEffect(() => {
       <div className={style.extra_box} ref={extraRef}>
         <button
         className={style.extrabtn}
-        onClick={() => {
-          const closing = showExtras;
-          setShowExtras(prev => !prev);
-          if (closing) {
-            setShowEntertainment(false);
-          }
-        }}
+        onClick={() => {setShowExtras(prev => !prev)}}
         >
           {collapsed
           ? <span className={style.extrabtn_icon}></span>
@@ -116,26 +108,11 @@ useEffect(() => {
         <ul
         className={`${style.nav_extralist} ${showExtras ? style.show : style.hide}`}
         >
-          {/* <li>Календарь</li>
-          <li>Книга контактов</li>
-          <li>Погода</li>
-          <li>Книга рецептов</li>
-          <li>Дневник</li>
-          <li>Калькуятор</li> */}
           <li
-            onClick={() => setShowEntertainment(prev => !prev)}
-            className={style.entertainments}
+            onClick={() => window.open('https://play.google.com/store/apps/details?id=com.RoyalLily.FlowerShop&hl=ru')}
+            className={style.flowershop}
           >
-            Развлечения
-            {showEntertainment && (
-              <ul className={style.entertainments_list}>
-                <li
-                onClick={() => window.open('https://play.google.com/store/apps/details?id=com.RoyalLily.FlowerShop&hl=ru')}
-                className={style.flowershop}
-                >
-                  Flower Shop</li>
-              </ul>
-            )}
+            Flower Shop
           </li>
         </ul>
         )}
