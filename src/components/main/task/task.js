@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import style from "./task.module.css";
-import TooltipPortal from "./tooltip";
+import TooltipPortal from "./tooltip/tooltip";
 
 function Task(props) {
 

@@ -1,8 +1,8 @@
 .header {
-  /* position: sticky; */
+  position: relative;
   display: flex;
   justify-content: center;
-  height: 50px;
+  height: 70px;
   background-color: rgb(111, 78, 55);
   color: white;
 }
@@ -12,9 +12,43 @@
   margin: 0;
   font-family: 'ClickClack', 'Times New Roman', Times, serif;
   letter-spacing: 2px;
+  align-self: center;
+}
+
+.weatherbadge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: absolute;
+  /* outline: 1px solid red; */
+  right: 20px;
+  top: 5px;
+  height: 60px;
 }
 
 @font-face {
   font-family: 'ClickClack';
   src: url('../assets/fonts/ClickClack.ttf') format("truetype");
+}
+
+@media (max-width: 1024px) {
+
+  .header {
+    justify-content: flex-start;
+    padding-left: 20px;
+  }
+
+}
+
+@media (max-width: 640px) {
+
+  .header {
+    padding-left: 5px;
+  }
+
+  .weatherbadge {
+    right: 5px;
+    min-width: 200px;
+}
+
 }
