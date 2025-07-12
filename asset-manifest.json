@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/planer/static/css/main.4bb18593.css",
-    "main.js": "/planer/static/js/main.35984568.js",
+    "main.css": "/planer/static/css/main.5bb9a582.css",
+    "main.js": "/planer/static/js/main.7a2860bd.js",
     "static/js/453.ef03b5c0.chunk.js": "/planer/static/js/453.ef03b5c0.chunk.js",
     "static/media/FlowerShop.png": "/planer/static/media/FlowerShop.10fc2d5c1f246ec242a2.png",
     "static/media/ClickClack.ttf": "/planer/static/media/ClickClack.592bc9c3363d69dcd208.ttf",
@@ -12,12 +12,12 @@
     "static/media/exclamationMark.svg": "/planer/static/media/exclamationMark.ee47fda2c42c2a6842c1.svg",
     "index.html": "/planer/index.html",
     "static/media/time.svg": "/planer/static/media/time.ab9f5116e1eaaa3cfd16.svg",
-    "main.4bb18593.css.map": "/planer/static/css/main.4bb18593.css.map",
-    "main.35984568.js.map": "/planer/static/js/main.35984568.js.map",
+    "main.5bb9a582.css.map": "/planer/static/css/main.5bb9a582.css.map",
+    "main.7a2860bd.js.map": "/planer/static/js/main.7a2860bd.js.map",
     "453.ef03b5c0.chunk.js.map": "/planer/static/js/453.ef03b5c0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4bb18593.css",
-    "static/js/main.35984568.js"
+    "static/css/main.5bb9a582.css",
+    "static/js/main.7a2860bd.js"
   ]
 }
