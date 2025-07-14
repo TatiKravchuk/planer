@@ -1,8 +1,21 @@
 import style from './weatherBadge.module.css';
 import { useEffect, useState } from "react";
 
-function WeatherBadge({ city, onClick }) {
+function WeatherBadge({ onClick }) {
+  const [city, setCity] = useState("Минск");
   const [text, setText] = useState("Загрузка...");
+
+  useEffect(() => {
+  fetch("https://ipapi.co/json/")
+    .then(res => res.json())
+    .then(data => {
+      const detectedCity = data.city || "Минск";
+      setCity(detectedCity);
+    })
+    .catch(() => {
+      setCity("Минск");
+    });
+}, []);
 
   function shouldUpdateWeather() {
     const saved = JSON.parse(localStorage.getItem("weatherCache"));
