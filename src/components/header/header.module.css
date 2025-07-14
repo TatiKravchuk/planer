@@ -24,6 +24,7 @@
   right: 20px;
   top: 5px;
   height: 60px;
+  cursor: pointer;
 }
 
 @font-face {

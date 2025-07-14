@@ -1,7 +1,7 @@
 import style from './weatherBadge.module.css';
 import { useEffect, useState } from "react";
 
-function WeatherBadge({ city }) {
+function WeatherBadge({ city, onClick }) {
   const [text, setText] = useState("Загрузка...");
 
   function shouldUpdateWeather() {
@@ -50,7 +50,7 @@ function WeatherBadge({ city }) {
   }, [city]);
 
   return (
-    <div className={style.weatherBadge}>
+    <div className={style.weatherBadge} onClick={onClick}>
       {text}
     </div>
   );

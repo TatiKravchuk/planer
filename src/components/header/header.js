@@ -6,14 +6,14 @@ import style from "./header.module.css"
 import WeatherBadge from "./weatherBadge/weatherBadge"
 import DateBadge from "./weatherBadge/dateBadge"
 
-function Header() {
+function Header({ onWeatherClick }) {
 
   // const [selectedCity, setSelectedCity] = useState(null);
 
 return (
   <header className={style.header}>
     <h1 className={style.title}>Планер</h1>
-    <div className={style.weatherbadge}>
+    <div className={style.weatherbadge} onClick={onWeatherClick}>
       <WeatherBadge city="" />
         {/* {selectedCity && (
           <div>
