@@ -6,7 +6,7 @@ import { useState } from "react";
 function PlannerCalendar({ onSelectDate }) {
   const [value, setValue] = useState(new Date());
 
-  function hasTasksOnDate(date) {
+function hasTasksOnDate(date) {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   const taskDates = JSON.parse(localStorage.getItem("taskDates")) || {};
 

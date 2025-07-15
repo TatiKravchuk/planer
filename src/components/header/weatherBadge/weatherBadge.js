@@ -2,39 +2,38 @@ import style from './weatherBadge.module.css';
 import { useEffect, useState } from "react";
 
 function WeatherBadge({ onClick }) {
-  const [city, setCity] = useState("Витебск");
+  const [city, setCity] = useState("");
   const [text, setText] = useState("Загрузка...");
 
   useEffect(() => {
   fetch("https://ipapi.co/json/")
     .then(res => res.json())
     .then(data => {
-      const detectedCity = data.city || "Витебск";
+      const detectedCity = data.city || "";
       setCity(detectedCity);
     })
     .catch(() => {
-      setCity("Витебск");
+      setCity("");
     });
 }, []);
 
-  function shouldUpdateWeather() {
-    const saved = JSON.parse(localStorage.getItem("weatherCache"));
-    const now = new Date();
-    const currentHour = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours());
+function shouldUpdateWeather(intervalMinutes = 60) {
+  const saved = JSON.parse(localStorage.getItem("weatherCache"));
+  const now = Date.now();
 
-    if (!saved || !saved.time) return true;
+  if (!saved || !saved.time) return true;
 
-    const savedTime = new Date(saved.time);
-    return savedTime.getTime() !== currentHour.getTime();
-  }
+  return now - saved.time >= intervalMinutes * 60 * 1000;
+}
 
   function fetchWeather(city, setText) {
     fetch(`https://wttr.in/${encodeURIComponent(city)}?format=3&m&lang=ru`)
       .then(res => res.text())
       .then(text => {
-        const now = new Date();
-        const hourStart = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours());
-        localStorage.setItem("weatherCache", JSON.stringify({ time: hourStart.toISOString(), text }));
+        localStorage.setItem("weatherCache", JSON.stringify({
+          time: Date.now(),
+          text
+        }));
         setText(text);
       })
       .catch(() => setText("Ошибка загрузки погоды"));
@@ -52,15 +51,25 @@ function WeatherBadge({ onClick }) {
     }
   }, [city]);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (document.visibilityState === "visible" && shouldUpdateWeather()) {
-        fetchWeather(city, setText);
-      }
-    }, 60000);
+useEffect(() => {
+  function tryUpdate() {
+    if (document.visibilityState === "visible" && shouldUpdateWeather()) {
+      fetchWeather(city, setText);
+    }
+  }
 
-    return () => clearInterval(timer);
-  }, [city]);
+  const timer = setInterval(tryUpdate, 60 * 60 * 1000);
+
+  document.addEventListener("visibilitychange", tryUpdate);
+
+  tryUpdate();
+
+  return () => {
+    clearInterval(timer);
+    document.removeEventListener("visibilitychange", tryUpdate);
+  };
+}, [city]);
+
 
   return (
     <div className={style.weatherBadge} onClick={onClick}>
