@@ -2,7 +2,7 @@
   height: calc(100vh - 260px);
   overflow-y: auto;
   overflow-x: hidden;
-  border: 1px solid rgb(111, 78, 55);
+  border: 1px solid var(--main-color);
   padding: 10px;
 }
 

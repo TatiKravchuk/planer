@@ -18,6 +18,8 @@ function WeatherBadge({ onClick }) {
 }, []);
 
 function shouldUpdateWeather(intervalMinutes = 60) {
+  localStorage.removeItem("weatherCache");
+
   const saved = JSON.parse(localStorage.getItem("weatherCache"));
   const now = Date.now();
 

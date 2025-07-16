@@ -9,8 +9,8 @@ ul, li {
   flex-direction: column;
   width: 270px;
   min-width: 270px;
-  background-color: white;
-  box-shadow: 1px 0 10px rgb(111, 78, 55);
+  background-color: var(--background-color);
+  box-shadow: 1px 0 10px var(--main-color);
   transition: 0.3s ease-out;
 }
 
@@ -21,8 +21,8 @@ ul, li {
   width: 80px;
   min-width: 80px;
   transition: 0.3s ease-out;
-  background-color: white;
-  box-shadow: 1px 0 10px rgb(111, 78, 55);
+  background-color: var(--background-color);
+  box-shadow: 1px 0 10px var(--main-color);
 }
 
 .navbutton {
@@ -30,7 +30,7 @@ ul, li {
   width: 50px;
   height: 50px;
   background-image: url(../assets/images/menu.svg);
-  background-color: white;
+  background-color: var(--background-color);
   border: 0;
   cursor: pointer;
 }
@@ -46,9 +46,9 @@ ul, li {
   box-sizing: border-box;
   height: 40px;
   padding: 10px 0 10px 50px;
-  color: rgb(111, 78, 55);
-  font-family: 'ClickClack', 'Times New Roman', Times, serif;
-  border-radius: 10px;
+  color: var(--dark-font);
+  font-family: var(--main-font);
+  border-radius: var(--main-border-radius);
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: left 10px center;
@@ -57,8 +57,8 @@ ul, li {
 
 .navitem:hover {
   box-sizing: border-box;
-  box-shadow: 1px 1px 10px rgb(111, 78, 55);
-  border-radius: 10px;
+  box-shadow: 1px 1px 10px var(--main-color);
+  border-radius: var(--main-border-radius);
   transition: 0.5s;
 }
 
@@ -66,12 +66,12 @@ ul, li {
   box-sizing: border-box;
   height: 40px;
   padding: 10px 0 10px 50px;
-  color: rgb(111, 78, 55);
-  font-family: 'ClickClack', 'Times New Roman', Times, serif;
-  border-radius: 10px;
+  color: var(--dark-font);
+  font-family: var(--main-font);
+  border-radius: var(--main-border-radius);
   cursor: pointer;
-  box-shadow: 1px 1px 10px rgb(111, 78, 55);
-  border-radius: 10px;
+  box-shadow: 1px 1px 10px var(--main-color);
+  border-radius: var(--main-border-radius);
   background-repeat: no-repeat;
   background-position: left 10px center;
   background-size: 30px;
@@ -130,14 +130,14 @@ background-image: url(../assets/images/star.svg);
   margin: 0 15px 20px 15px;
   width: calc(100% - 30px);
   height: 50px;
-  font-family: 'ClickClack', 'Times New Roman', Times, serif;
+  font-family: var(--main-font);
   font-size: 20px;
-  background-color: rgb(111, 78, 55);
+  background-color: var(--main-color);
   border: 0;
-  border-radius: 10px;
-  color: white;
+  border-radius: var(--main-border-radius);
+  color: var(--light-font);
   cursor: pointer;
-  box-shadow: 3px 3px 5px rgb(111, 78, 55);
+  box-shadow: 3px 3px 5px var(--main-color);
 }
 
 .button_text {
@@ -170,11 +170,11 @@ background-image: url(../assets/images/star.svg);
   bottom: calc(100% + 15px);
   left: 15px;
   padding: 15px;
-  font-family: 'ClickClack', 'Times New Roman', Times, serif;
-  background-color: white;
-  border-radius: 10px;
-  border: 3px solid rgb(111, 78, 55);
-  box-shadow: 5px 5px 10px rgb(111, 78, 55);
+  font-family: var(--main-font);
+  background-color: var(--background-color);
+  border-radius: var(--main-border-radius);
+  border: 3px solid var(--main-color);
+  box-shadow: 5px 5px 10px var(--main-color);
   z-index: 9999;
 }
 
@@ -185,7 +185,7 @@ background-image: url(../assets/images/star.svg);
   height: 30px;
   white-space: nowrap;
   width: fit-content;
-  color: rgb(111, 78, 55);
+  color: var(--light-font);
   cursor: pointer;
 }
 
@@ -209,11 +209,6 @@ background-image: url(../assets/images/star.svg);
 @keyframes fadeIn {
   from { opacity: 0 }
   to { opacity: 1 }
-}
-
-@font-face {
-  font-family: 'ClickClack';
-  src: url('../assets/fonts/ClickClack.ttf') format("truetype");
 }
 
 @media (max-width: 640px) {
@@ -265,7 +260,7 @@ background-image: url(../assets/images/star.svg);
     width: 100%;
     height: 35px;
     margin: 0;
-    box-shadow: 1px 1px 3px rgb(111, 78, 55);
+    box-shadow: 1px 1px 3px var(--main-color);
   }
 
   .extrabtn_icon {
@@ -277,7 +272,7 @@ background-image: url(../assets/images/star.svg);
   .nav_extralist {
     bottom: 45px;
     left: 0;
-    box-shadow: 2px 2px 5px rgb(111, 78, 55);
+    box-shadow: 2px 2px 5px var(--main-color);
   }
 
 }

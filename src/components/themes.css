@@ -1,0 +1,85 @@
+:root {
+  --light-font: white;
+  --dark-font: rgb(0, 65, 106);
+  --transparent-font: rgba(0, 65, 106, 0.5);
+  --background-color: white;
+  --main-color: rgb(0, 65, 106);
+  --add-color: rgba(0, 65, 106, 0.1);
+  --main-font: 'IBMPlexSans';
+  --main-border-radius: 6px;
+}
+
+[data-theme="orange"] {
+  --light-font: white;
+  --dark-font: rgb(234, 89, 42);
+  --transparent-font: rgba(234, 89, 42, 0.5);
+  --background-color: white;
+  --main-color: rgb(234, 89, 42);
+  --add-color: rgba(234, 89, 42, 0.1);
+  --main-font: 'Pacifico';
+  --main-border-radius: 10px;
+}
+
+[data-theme="dark"] {
+  --light-font: white;
+  --dark-font: white;
+  --transparent-font: rgba(255, 255, 255, 0.5);
+  --background-color: rgb(45, 45, 45);
+  --main-color: rgb(0, 0, 0);
+  --add-color: rgba(26, 26, 26, 0.8);
+  --main-font: 'IBMPlexSans';
+  --main-border-radius: 6px;
+}
+
+[data-theme="pink"] {
+  --light-font: white;
+  --dark-font: rgb(225, 103, 129);
+  --transparent-font: rgba(225, 103, 129, 0.5);
+  --background-color: white;
+  --main-color: rgb(225, 103, 129);
+  --add-color: rgba(225, 103, 129, 0.1);
+  --main-font: 'MarckScript';
+  --main-border-radius: 10px;
+}
+
+[data-theme="blue"] {
+  --light-font: white;
+  --dark-font: rgb(0, 65, 106);
+  --transparent-font: rgba(0, 65, 106, 0.5);
+  --background-color: white;
+  --main-color: rgb(0, 65, 106);
+  --add-color: rgba(0, 65, 106, 0.1);
+  --main-font: 'IBMPlexSans';
+  --main-border-radius: 6px;
+}
+
+[data-theme="brown"] {
+  --light-font: white;
+  --dark-font: rgb(111, 78, 55);
+  --transparent-font: rgba(111, 78, 55, 0.5);
+  --background-color: white;
+  --main-color: rgb(111, 78, 55);
+  --add-color: rgba(111, 78, 55, 0.1);
+  --main-font: 'ClickClack';
+  --main-border-radius: 10px;
+}
+
+@font-face {
+  font-family: 'ClickClack';
+  src: url('./assets/fonts/ClickClack.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'IBMPlexSans';
+  src: url('./assets/fonts/IBMPlexSans.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'MarckScript';
+  src: url('./assets/fonts/MarckScript.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'Pacifico';
+  src: url('./assets/fonts/Pacifico.ttf') format("truetype");
+}

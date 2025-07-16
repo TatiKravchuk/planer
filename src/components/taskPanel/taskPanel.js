@@ -9,6 +9,13 @@ function TaskPanel({ visible, onClose, selectedCity }) {
 const [selectedDate, setSelectedDate] = useState(new Date());
 const [tasksForDate, setTasksForDate] = useState([]);
 
+const [theme, setTheme] = useState("default");
+
+const handleThemeChange = (e) => {
+  const selected = e.target.value;
+  setTheme(selected);
+  document.body.setAttribute("data-theme", selected);
+};
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -53,6 +60,17 @@ const [tasksForDate, setTasksForDate] = useState([]);
           )}
         </div>
       </div>
+      <div className={style.themeSelector}>
+  <label htmlFor="theme">Изменить тему:</label>
+  <select id="theme" value={theme} onChange={handleThemeChange}>
+    <option value="default">Деловой</option>
+    <option value="dark">Ночной</option>
+    <option value="brown">Кофе</option>
+    <option value="orange">Закат</option>
+    <option value="pink">Принцесса</option>
+  </select>
+</div>
+
     </div>
   );
 }

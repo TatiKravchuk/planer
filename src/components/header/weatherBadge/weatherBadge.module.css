@@ -1,17 +1,12 @@
 .weatherBadge {
   font-size: 14px;
-  background-color: rgb(111, 78, 55);
-  color: white;
-  font-family: 'ClickClack', 'Times New Roman', Times, serif;
+  background-color: var(--main-color);
+  color: var(--light-font);
+  font-family: var(--main-font);
   text-align: end;
 }
 
 .dateBadge {
-  font-family: 'ClickClack', 'Times New Roman', Times, serif;
+  font-family: var(--main-font);
   font-size: 12px;
-}
-
-@font-face {
-  font-family: 'ClickClack';
-  src: url('../../assets/fonts/ClickClack.ttf') format("truetype");
 }

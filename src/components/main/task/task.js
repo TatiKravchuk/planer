@@ -158,7 +158,6 @@ useEffect(() => {
         type="text"
         className={`${style.input_task} ${isExpired ? style.expired_task : ""}`}
         value={props.text}
-        readOnly
         ></input>
       <div className={style.task_buttons}>
         <div className={style.sort_buttons}>

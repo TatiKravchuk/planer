@@ -3,14 +3,14 @@
   display: flex;
   justify-content: center;
   height: 70px;
-  background-color: rgb(111, 78, 55);
-  color: white;
+  background-color: var(--main-color);
+  color: var(--light-font);
 }
 
 .title {
   display: inline-block;
   margin: 0;
-  font-family: 'ClickClack', 'Times New Roman', Times, serif;
+  font-family: var(--main-font);
   letter-spacing: 2px;
   align-self: center;
 }
@@ -25,11 +25,6 @@
   top: 5px;
   height: 60px;
   cursor: pointer;
-}
-
-@font-face {
-  font-family: 'ClickClack';
-  src: url('../assets/fonts/ClickClack.ttf') format("truetype");
 }
 
 @media (max-width: 1024px) {

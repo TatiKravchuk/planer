@@ -1,5 +1,7 @@
+@import url(./components/themes.css);
+
 .App {
-  background-color: rgb(111, 78, 55, 0.1);
+  background-color: var(--add-color);
 }
 
 .main {

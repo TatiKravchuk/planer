@@ -4,8 +4,8 @@
   right: -100%;
   width: 400px;
   height: 100vh;
-  background: white;
-  box-shadow: -7px 0 10px rgba(111, 78, 55, 0.1);
+  background: var(--background-color);
+  box-shadow: -7px 0 10px var(--add-color);
   transition: right 0.5s ease;
   z-index: 1000;
 }
