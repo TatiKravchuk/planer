@@ -1,23 +1,29 @@
 {
   "files": {
-    "main.css": "/planer/static/css/main.21dd8f6f.css",
-    "main.js": "/planer/static/js/main.bdcd451c.js",
+    "main.css": "/planer/static/css/main.056bc7e3.css",
+    "main.js": "/planer/static/js/main.e035e664.js",
     "static/js/453.ef03b5c0.chunk.js": "/planer/static/js/453.ef03b5c0.chunk.js",
+    "static/media/Pacifico.ttf": "/planer/static/media/Pacifico.c0d735fc04154e03a691.ttf",
     "static/media/FlowerShop.png": "/planer/static/media/FlowerShop.10fc2d5c1f246ec242a2.png",
+    "static/media/IBMPlexSans.ttf": "/planer/static/media/IBMPlexSans.76accc91eb5be93868ea.ttf",
     "static/media/ClickClack.ttf": "/planer/static/media/ClickClack.592bc9c3363d69dcd208.ttf",
+    "static/media/MarckScript.ttf": "/planer/static/media/MarckScript.5b6142752f3269576cc7.ttf",
     "static/media/tasks.svg": "/planer/static/media/tasks.33576d5b64429e5c615c.svg",
+    "static/media/checkmarkBlack.svg": "/planer/static/media/checkmarkBlack.50378ecc443eaf611456.svg",
+    "static/media/checkmarkGreen.svg": "/planer/static/media/checkmarkGreen.e9d84fa8cd73b9abae5a.svg",
     "static/media/checkmark.svg": "/planer/static/media/checkmark.9d1d3204f7bea4c81597.svg",
+    "static/media/checkmarkRound.svg": "/planer/static/media/checkmarkRound.47713145cc93bbfe3ba8.svg",
     "static/media/star.svg": "/planer/static/media/star.8a9fa46e6a054fc1d4a8.svg",
-    "static/media/menu.svg": "/planer/static/media/menu.f95a31f645a1918721a7.svg",
+    "static/media/menu.svg": "/planer/static/media/menu.50bc470e3baacffca548.svg",
     "static/media/exclamationMark.svg": "/planer/static/media/exclamationMark.ee47fda2c42c2a6842c1.svg",
     "index.html": "/planer/index.html",
     "static/media/time.svg": "/planer/static/media/time.ab9f5116e1eaaa3cfd16.svg",
-    "main.21dd8f6f.css.map": "/planer/static/css/main.21dd8f6f.css.map",
-    "main.bdcd451c.js.map": "/planer/static/js/main.bdcd451c.js.map",
+    "main.056bc7e3.css.map": "/planer/static/css/main.056bc7e3.css.map",
+    "main.e035e664.js.map": "/planer/static/js/main.e035e664.js.map",
     "453.ef03b5c0.chunk.js.map": "/planer/static/js/453.ef03b5c0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.21dd8f6f.css",
-    "static/js/main.bdcd451c.js"
+    "static/css/main.056bc7e3.css",
+    "static/js/main.e035e664.js"
   ]
 }
