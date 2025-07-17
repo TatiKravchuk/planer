@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Task from "../task/task";
 import style from "./allTasks.module.css"
+import TaskInfoPanel from "../../taskInfoPanel/taskInfoPanel";
 
 function AllTasks({ currentFilter }) {
   const [list, setList] = useState([]);
@@ -43,7 +44,22 @@ function AllTasks({ currentFilter }) {
     });
   };
 
+  const [openedTaskId, setOpenedTaskId] = useState(null);
+
+  const handleOpenTask = (id) => {
+  setOpenedTaskId(id);
+};
+
+const updateTaskText = (id, newText) => {
+  const updatedList = list.map(task =>
+    task.id === id ? { ...task, text: newText } : task
+  );
+  setList(updatedList);
+  localStorage.setItem("tasks", JSON.stringify(updatedList));
+};
+
   return (
+    <>
     <div className={style.tasks_list}>
       {filterTasks(list).map((task) => (
         <Task
@@ -51,9 +67,17 @@ function AllTasks({ currentFilter }) {
           key={task.id}
           deleteTask={() => deleteTask(task.id)}
           id={task.id}
+          onOpenTask={() => handleOpenTask(task.id)}
         />
       ))}
     </div>
+    <TaskInfoPanel
+      taskId={openedTaskId}
+      visible={!!openedTaskId}
+      onClose={() => setOpenedTaskId(null)}
+      updateTaskText={updateTaskText}
+    />
+    </>
   );
 }
 

@@ -38,3 +38,29 @@
   margin-bottom: 6px;
   font-weight: 500;
 }
+
+.cityInput {
+  padding: 8px;
+  font-size: 14px;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.cityList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: var(--panel-bg);
+  border: 1px solid var(--accent-color);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.cityList li {
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+.cityList li:hover {
+  background-color: var(--hover-bg);
+}

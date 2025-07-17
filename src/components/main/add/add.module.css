@@ -46,7 +46,7 @@
   color: var(--light-font);
   border: 0;
   border-radius: var(--main-border-radius);
-  box-shadow: 3px 3px 5px var(--main-color);
+  box-shadow: 1px 1px 5px var(--main-color);
   cursor: pointer;
   letter-spacing: 0.5px;
 }
@@ -61,7 +61,7 @@
   color: var(--light-font);
   border: 0;
   border-radius: var(--main-border-radius);
-  box-shadow: 3px 3px 5px var(--main-color);
+  box-shadow: 1px 1px 5px var(--main-color);
   cursor: pointer;
   letter-spacing: 0.5px;
 }

@@ -27,6 +27,14 @@
   cursor: pointer;
 }
 
+.weatherStatic p {
+  margin: 0;
+  margin-bottom: 5px;
+  color: var(--light-font);
+  font-family: var(--main-font);
+  font-size: smaller;
+}
+
 @media (max-width: 1024px) {
 
   .header {

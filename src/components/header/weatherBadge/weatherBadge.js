@@ -1,80 +1,51 @@
-import style from './weatherBadge.module.css';
 import { useEffect, useState } from "react";
+import style from "./weatherBadge.module.css";
 
-function WeatherBadge({ onClick }) {
+function WeatherBadge({ onClick, className }) {
   const [city, setCity] = useState("");
   const [text, setText] = useState("Загрузка...");
 
   useEffect(() => {
-  fetch("https://ipapi.co/json/")
-    .then(res => res.json())
-    .then(data => {
-      const detectedCity = data.city || "";
-      setCity(detectedCity);
-    })
-    .catch(() => {
-      setCity("");
-    });
-}, []);
-
-function shouldUpdateWeather(intervalMinutes = 60) {
-  localStorage.removeItem("weatherCache");
-
-  const saved = JSON.parse(localStorage.getItem("weatherCache"));
-  const now = Date.now();
-
-  if (!saved || !saved.time) return true;
-
-  return now - saved.time >= intervalMinutes * 60 * 1000;
-}
-
-  function fetchWeather(city, setText) {
-    fetch(`https://wttr.in/${encodeURIComponent(city)}?format=3&m&lang=ru`)
-      .then(res => res.text())
-      .then(text => {
-        localStorage.setItem("weatherCache", JSON.stringify({
-          time: Date.now(),
-          text
-        }));
-        setText(text);
+    fetch("https://ipapi.co/json/")
+      .then(res => res.json())
+      .then(data => {
+        const detectedCity = data.city || "";
+        setCity(detectedCity);
       })
-      .catch(() => setText("Ошибка загрузки погоды"));
-  }
+      .catch(() => setCity(""));
+  }, []);
 
   useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("weatherCache"));
+    if (!city) return;
 
-    if (shouldUpdateWeather()) {
-      fetchWeather(city, setText);
-    } else if (saved && saved.text) {
-      setText(saved.text);
-    } else {
-      fetchWeather(city, setText);
-    }
+    fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&language=ru&count=1`)
+      .then(res => res.json())
+      .then(data => {
+        const found = data.results?.[0];
+        if (!found) throw new Error("Город не найден");
+
+        const { latitude, longitude } = found;
+        return fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`);
+      })
+          .then(res => res.json())
+          .then(data => {
+            const weather = data.current_weather;
+            if (weather) {
+              const display = `🌡 ${weather.temperature}°C, 🌬 ${weather.windspeed} км/ч`;
+              const finalText = `${city}: ${display}`;
+              setText(finalText);
+
+              localStorage.setItem("currentWeatherText", finalText);
+            } else {
+              setText("Нет данных о погоде");
+            }
+          })
+
+      .catch(() => setText("Ошибка загрузки погоды"));
   }, [city]);
 
-useEffect(() => {
-  function tryUpdate() {
-    if (document.visibilityState === "visible" && shouldUpdateWeather()) {
-      fetchWeather(city, setText);
-    }
-  }
-
-  const timer = setInterval(tryUpdate, 60 * 60 * 1000);
-
-  document.addEventListener("visibilitychange", tryUpdate);
-
-  tryUpdate();
-
-  return () => {
-    clearInterval(timer);
-    document.removeEventListener("visibilitychange", tryUpdate);
-  };
-}, [city]);
-
-
   return (
-    <div className={style.weatherBadge} onClick={onClick}>
+    <div className={`${style.weatherBadge} ${style[className] || className}`} onClick={onClick}>
       {text}
     </div>
   );

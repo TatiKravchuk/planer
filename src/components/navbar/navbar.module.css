@@ -185,7 +185,7 @@ background-image: url(../assets/images/star.svg);
   height: 30px;
   white-space: nowrap;
   width: fit-content;
-  color: var(--light-font);
+  color: var(--dark-font);
   cursor: pointer;
 }
 

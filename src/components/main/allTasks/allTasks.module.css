@@ -1,9 +1,10 @@
 .tasks_list {
+  padding: 10px;
   height: calc(100vh - 260px);
   overflow-y: auto;
   overflow-x: hidden;
   border: 1px solid var(--main-color);
-  padding: 10px;
+  border-radius: var(--main-border-radius);
 }
 
 @media (max-width: 768px) {

@@ -2,47 +2,48 @@ import { useState, useEffect } from "react";
 import style from "./task.module.css";
 import TooltipPortal from "./tooltip/tooltip";
 
-function Task(props) {
+function Task({ text, id, deleteTask, onOpenTask }) {
 
-  const [isImportant, setisImportant] = useState(JSON.parse(localStorage.getItem("buttonStates"))?.[`${props.id}-important`] || false);
+  const [isImportant, setisImportant] = useState(JSON.parse(localStorage.getItem("buttonStates"))?.[`${id}-important`] || false);
   const [tooltipVisible, setTooltipVisible] = useState(false);
   const [tooltipText, setTooltipText] = useState('');
   const [tooltipPos, setTooltipPos] = useState({ top: 0, left: 0 });
   const [tooltipSource, setTooltipSource] = useState('');
+  const [taskText, setTaskText] = useState(text);
 
   useEffect(() => {
   const buttonStates = JSON.parse(localStorage.getItem("buttonStates")) || {};
-  buttonStates[`${props.id}-important`] = isImportant;
+  buttonStates[`${id}-important`] = isImportant;
   localStorage.setItem("buttonStates", JSON.stringify(buttonStates));
-  }, [isImportant, props.id]);
+  }, [isImportant, id]);
 
   const toggleImportant = () => {
     setisImportant(!isImportant);
   };
 
   const [isDone, setIsDone] = useState(
-  JSON.parse(localStorage.getItem("buttonStates"))?.[`${props.id}-done`] || false
+  JSON.parse(localStorage.getItem("buttonStates"))?.[`${id}-done`] || false
   );
 
   useEffect(() => {
     const buttonStates = JSON.parse(localStorage.getItem("buttonStates")) || {};
-    buttonStates[`${props.id}-done`] = isDone;
+    buttonStates[`${id}-done`] = isDone;
     localStorage.setItem("buttonStates", JSON.stringify(buttonStates));
-  }, [isDone, props.id]);
+  }, [isDone, id]);
 
   const toggleDone = () => {
     setIsDone(!isDone);
   };
 
   const [taskDate, setTaskDate] = useState(
-    JSON.parse(localStorage.getItem("taskDates"))?.[props.id] || ""
+    JSON.parse(localStorage.getItem("taskDates"))?.[id] || ""
   );
 
   const [isExpired, setIsExpired] = useState(false);
 
   useEffect(() => {
   const taskDates = JSON.parse(localStorage.getItem("taskDates")) || {};
-  const storedDate = taskDates[props.id] || "";
+  const storedDate = taskDates[id] || "";
   setTaskDate(storedDate);
 
   if (storedDate) {
@@ -52,14 +53,14 @@ function Task(props) {
     setIsExpired(deadline > today);
   }
 
-  }, [props.id]);
+  }, [id]);
 
   const handleDateChange = (event) => {
   const newDate = event.target.value;
   setTaskDate(newDate);
 
   const taskDates = JSON.parse(localStorage.getItem("taskDates")) || {};
-  taskDates[props.id] = newDate;
+  taskDates[id] = newDate;
   localStorage.setItem("taskDates", JSON.stringify(taskDates));
 
   const today = new Date();
@@ -70,14 +71,14 @@ function Task(props) {
   setIsExpired(expiredStatus);
 
   const expiredTasks = JSON.parse(localStorage.getItem("expiredTasks")) || {};
-  expiredTasks[props.id] = expiredStatus;
+  expiredTasks[id] = expiredStatus;
   localStorage.setItem("expiredTasks", JSON.stringify(expiredTasks));
   };
 
   useEffect(() => {
   const expiredTasks = JSON.parse(localStorage.getItem("expiredTasks")) || {};
-  setIsExpired(expiredTasks[props.id] || false);
-  }, [props.id]);
+  setIsExpired(expiredTasks[id] || false);
+  }, [id]);
 
 
   function refuseReload(e) {
@@ -108,6 +109,18 @@ const showTooltipHandler = (e, source) => {
 
 const hideTooltipHandler = () => setTooltipVisible(false);
 
+const handleTextChange = (e) => {
+  const newText = e.target.value;
+  setTaskText(newText);
+
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const index = tasks.findIndex(t => t.id === id);
+  if (index !== -1) {
+    tasks[index].text = newText;
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
+};
+
 useEffect(() => {
   if (tooltipVisible && tooltipSource === 'important') {
     setTooltipText(isImportant
@@ -134,16 +147,20 @@ useEffect(() => {
       setIsExpired(expired);
 
       const expiredTasks = JSON.parse(localStorage.getItem("expiredTasks")) || {};
-      expiredTasks[props.id] = expired;
+      expiredTasks[id] = expired;
       localStorage.setItem("expiredTasks", JSON.stringify(expiredTasks));
     }
   }, 1000);
 
   return () => clearInterval(interval);
-}, [taskDate, props.id]);
+}, [taskDate, id]);
+
+useEffect(() => {
+  setTaskText(text);
+}, [text]);
 
   return(
-    <form className={style.task_box}>
+    <form className={style.task_box} onClick={onOpenTask}>
       <TooltipPortal
         visible={tooltipVisible}
         position={{
@@ -157,21 +174,22 @@ useEffect(() => {
       <input
         type="text"
         className={`${style.input_task} ${isExpired ? style.expired_task : ""}`}
-        value={props.text}
+        value={taskText}
+        onChange={(e) => { handleTextChange(e); e.stopPropagation(); }}
+        onClick={(e) => e.stopPropagation()}
         ></input>
       <div className={style.task_buttons}>
         <div className={style.sort_buttons}>
           <button
           className={isImportant ? style.important_button_active : style.important_button}
-          onClick={(e) => {refuseReload(e); toggleImportant()}}
-          id={props.idImportant}
+          onClick={(e) => {refuseReload(e); toggleImportant(); e.stopPropagation()}}
           onMouseEnter={(e) => showTooltipHandler(e, 'important')}
           onMouseLeave={hideTooltipHandler}
           >
           </button>
           <button
           className={isDone ? style.done_button_active : style.done_button}
-          onClick={(e) => {refuseReload(e); toggleDone()}}
+          onClick={(e) => {refuseReload(e); toggleDone(); e.stopPropagation()}}
           onMouseEnter={(e) => showTooltipHandler(e, 'done')}
           onMouseLeave={hideTooltipHandler}
           >
@@ -181,11 +199,12 @@ useEffect(() => {
           className={style.task_date}
           value={taskDate}
           onChange={handleDateChange}
+          onClick={(e) => e.stopPropagation()}
           ></input>
         </div>
         <button
         className={style.delete_button}
-        onClick={(e) => {refuseReload(e); props.deleteTask(props.id)}}
+        onClick={(e) => {refuseReload(e); deleteTask(id); e.stopPropagation()}}
         onMouseEnter={(e) => showTooltipHandler(e, 'delete')}
         onMouseLeave={hideTooltipHandler}
         >

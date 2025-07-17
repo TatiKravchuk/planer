@@ -18,6 +18,7 @@ function hasTasksOnDate(date) {
   return tasks.some(task => taskDates[task.id] === current);
 }
 
+
   return (
     <div>
       <Calendar

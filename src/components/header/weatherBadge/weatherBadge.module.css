@@ -10,3 +10,10 @@
   font-family: var(--main-font);
   font-size: 12px;
 }
+
+.in-task-panel {
+  font-family: var(--main-font);
+  color: var(--dark-font);
+  background-color: var(--background-color);
+  text-align: start;
+}
