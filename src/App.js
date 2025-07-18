@@ -11,6 +11,9 @@ function App() {
     const [panelOpen, setPanelOpen] = useState(false);
     const [selectedCityInfo, setSelectedCityInfo] = useState(null);
     const [weatherText, setWeatherText] = useState("");
+    const [tasks, setTasks] = useState(
+      JSON.parse(localStorage.getItem("tasks")) || []
+    );
 
     useEffect(() => {
   const cached = JSON.parse(localStorage.getItem("weather_manual_cache"));
@@ -18,6 +21,16 @@ function App() {
     setWeatherText(cached.text);
   }
 }, []);
+
+const updateTaskText = (id, newText) => {
+  if (!Array.isArray(tasks)) return;
+
+  const updated = tasks.map(t =>
+    t.id === id ? { ...t, text: newText } : t
+  );
+  setTasks(updated);
+  localStorage.setItem("tasks", JSON.stringify(updated));
+};
 
   return (
     <div className="App">
@@ -30,14 +43,22 @@ function App() {
         <Navbar setCurrentFilter={setCurrentFilter} />
         <main className="main_box">
           <Add />
-          <AllTasks currentFilter={currentFilter} />
+          <AllTasks
+            currentFilter={currentFilter}
+            tasks={tasks}
+            updateTaskText={updateTaskText}
+            setTasks={setTasks}
+          />
         </main>
         <TaskPanel
           visible={panelOpen}
           onClose={() => setPanelOpen(false)}
-            selectedCityInfo={selectedCityInfo}
-            setSelectedCityInfo={setSelectedCityInfo}
-            setWeatherText={setWeatherText}
+          selectedCityInfo={selectedCityInfo}
+          setSelectedCityInfo={setSelectedCityInfo}
+          setWeatherText={setWeatherText}
+          tasks={tasks}
+          setTasks={setTasks}
+          updateTaskText={updateTaskText}
         />
       </div>
     </div>

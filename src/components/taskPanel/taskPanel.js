@@ -6,7 +6,7 @@ import TaskInfoPanel from "../taskInfoPanel/taskInfoPanel";
 import WeatherBadgeManual from "../header/weatherBadge/weatherBadgeManual";
 import CitySelector from "../header/weatherBadge/citySelector";
 
-function TaskPanel({ visible, onClose, selectedCity, selectedCityInfo, setSelectedCityInfo, setWeatherText }) {
+function TaskPanel({ visible, onClose, selectedCity, selectedCityInfo, setSelectedCityInfo, setWeatherText, tasks, setTasks, updateTaskText }) {
 const panelRef = useRef(null);
 
 const [selectedDate, setSelectedDate] = useState(new Date());
@@ -43,7 +43,7 @@ useEffect(() => {
 
   const filtered = tasks.filter(task => taskDates[task.id] === chosen);
   setTasksForDate(filtered);
-}, [selectedDate]);
+}, [selectedDate, tasks]);
 
 const showPanel = visible && !openedTaskId;
 
@@ -61,6 +61,17 @@ useEffect(() => {
   }
   // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [selectedCityInfo]);
+
+useEffect(() => {
+  function handleClickOutside(event) {
+    if (visible && panelRef.current && !panelRef.current.contains(event.target)) {
+      onClose();
+    }
+  }
+
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => document.removeEventListener("mousedown", handleClickOutside);
+}, [visible, onClose]);
 
 return (
   <>
@@ -112,6 +123,7 @@ return (
       taskId={openedTaskId}
       visible={!!openedTaskId}
       onClose={() => setOpenedTaskId(null)}
+      updateTaskText={updateTaskText}
     />
   </>
 );

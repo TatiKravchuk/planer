@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import style from "./taskInfoPanel.module.css";
 
 function TaskInfoPanel({ taskId, visible, onClose, updateTaskText }) {
@@ -6,6 +6,22 @@ function TaskInfoPanel({ taskId, visible, onClose, updateTaskText }) {
   const [date, setDate] = useState("");
   const [comment, setComment] = useState("");
   const [taskText, setTaskText] = useState("");
+
+  const panelRef = useRef(null);
+
+  useEffect(() => {
+  const handleClickOutside = (e) => {
+    if (panelRef.current && !panelRef.current.contains(e.target)) {
+      onClose();
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
   useEffect(() => {
     if (!taskId) return;
@@ -41,7 +57,10 @@ function TaskInfoPanel({ taskId, visible, onClose, updateTaskText }) {
   if (!visible || !task) return null;
 
   return (
-    <div className={`${style.panel} ${visible ? style.open : ""}`}>
+    <div
+      className={`${style.panel} ${visible ? style.open : ""}`}
+      ref={panelRef}
+    >
       <button className={style.close} onClick={onClose}>✖</button>
       <h3>📌 Задача</h3>
       <label htmlFor="taskText">✏️ Текст задачи:</label>

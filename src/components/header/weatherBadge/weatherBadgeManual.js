@@ -59,6 +59,7 @@ function WeatherBadgeManual({ city: incomingCity, onClick, className, onWeatherT
         }
       })
       .catch(() => setText("Ошибка загрузки погоды"));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resolvedCity]);
 
 return (

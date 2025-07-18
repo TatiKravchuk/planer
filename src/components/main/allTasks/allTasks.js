@@ -1,19 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Task from "../task/task";
 import style from "./allTasks.module.css"
 import TaskInfoPanel from "../../taskInfoPanel/taskInfoPanel";
 
-function AllTasks({ currentFilter }) {
-  const [list, setList] = useState([]);
-
-  useEffect(() => {
-    const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    setList(savedTasks);
-  }, [list]);
+function AllTasks({ currentFilter, tasks, setTasks }) {
 
   const deleteTask = (id) => {
-    const updatedList = list.filter((task) => task.id !== id)
-    setList(updatedList)
+    const updatedList = tasks.filter((task) => task.id !== id)
+    setTasks(updatedList)
     localStorage.setItem('tasks', JSON.stringify(updatedList))
   }
 
@@ -50,24 +44,27 @@ function AllTasks({ currentFilter }) {
   setOpenedTaskId(id);
 };
 
-const updateTaskText = (id, newText) => {
-  const updatedList = list.map(task =>
-    task.id === id ? { ...task, text: newText } : task
-  );
-  setList(updatedList);
-  localStorage.setItem("tasks", JSON.stringify(updatedList));
-};
+  const updateTaskText = (id, newText) => {
+    if (!Array.isArray(tasks)) return;
+
+    const updated = tasks.map(t =>
+      t.id === id ? { ...t, text: newText } : t
+    );
+    setTasks(updated);
+    localStorage.setItem("tasks", JSON.stringify(updated));
+  };
 
   return (
     <>
     <div className={style.tasks_list}>
-      {filterTasks(list).map((task) => (
+      {filterTasks(tasks).map((task) => (
         <Task
           text={task.text}
           key={task.id}
           deleteTask={() => deleteTask(task.id)}
           id={task.id}
           onOpenTask={() => handleOpenTask(task.id)}
+          onTextChange={updateTaskText}
         />
       ))}
     </div>

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import style from "./task.module.css";
 import TooltipPortal from "./tooltip/tooltip";
 
-function Task({ text, id, deleteTask, onOpenTask }) {
+function Task({ text, id, deleteTask, onOpenTask, onTextChange }) {
 
   const [isImportant, setisImportant] = useState(JSON.parse(localStorage.getItem("buttonStates"))?.[`${id}-important`] || false);
   const [tooltipVisible, setTooltipVisible] = useState(false);
@@ -80,7 +80,6 @@ function Task({ text, id, deleteTask, onOpenTask }) {
   setIsExpired(expiredTasks[id] || false);
   }, [id]);
 
-
   function refuseReload(e) {
     e.preventDefault();
   }
@@ -118,6 +117,7 @@ const handleTextChange = (e) => {
   if (index !== -1) {
     tasks[index].text = newText;
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    if (onTextChange) onTextChange(id, newText);
   }
 };
 
