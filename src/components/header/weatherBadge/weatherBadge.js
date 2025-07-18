@@ -6,7 +6,7 @@ function WeatherBadge({ onClick, className }) {
   const [text, setText] = useState("Загрузка...");
 
   useEffect(() => {
-    fetch("https://ipapi.co/json/")
+    fetch("/json")
       .then(res => res.json())
       .then(data => {
         const detectedCity = data.city || "";

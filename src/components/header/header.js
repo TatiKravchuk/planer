@@ -11,7 +11,7 @@ return (
     <div className={style.weatherbadge} onClick={onWeatherClick}>
       <WeatherBadge city="" />
       <div className={style.weatherStatic}>
-        <p>🏠 {weatherText}</p>
+        <p>{weatherText || "Выберите город"}</p>
       </div>
       <DateBadge />
     </div>

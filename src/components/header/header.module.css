@@ -28,11 +28,16 @@
 }
 
 .weatherStatic p {
+  padding-left: 20px;
   margin: 0;
   margin-bottom: 5px;
   color: var(--light-font);
   font-family: var(--main-font);
   font-size: smaller;
+  background-image: url(../assets/images/house.svg);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 15px;
 }
 
 @media (max-width: 1024px) {

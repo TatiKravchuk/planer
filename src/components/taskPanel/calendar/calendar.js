@@ -1,6 +1,7 @@
-import style from "./calendar.module.css"
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import style from "./calendar.module.css"
+import "./calendar.css"
 import { useState } from "react";
 
 function PlannerCalendar({ onSelectDate }) {
@@ -23,8 +24,8 @@ function hasTasksOnDate(date) {
     <div>
       <Calendar
         onChange={(date) => {
-          setValue(date);
-          onSelectDate && onSelectDate(date);
+          setValue(date)
+          onSelectDate && onSelectDate(date)
         }}
         value={value}
         locale="ru-RU"

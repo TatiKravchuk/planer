@@ -12,8 +12,52 @@
 }
 
 .in-task-panel {
+  padding-left: 20px;
   font-family: var(--main-font);
   color: var(--dark-font);
   background-color: var(--background-color);
   text-align: start;
+  background-image: url(../../assets/images/house_black.svg);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 15px;
+}
+
+.selector_wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.city_option {
+  position: absolute;
+  top: 30px;
+  padding: 5px;
+  background-color: var(--background-color);
+  border: 1px solid var(--main-color);
+  border-radius: var(--main-border-radius);
+}
+
+.city_input {
+  width: 310px;
+  padding: 5px;
+  margin: 5px 10px 10px 0;
+  color: var(--dark-font);
+  font-family: var(--main-font);
+  border: 1px solid var(--main-color);
+  border-radius: var(--main-border-radius);
+  background-color: var(--background-color);
+}
+
+.city_input::placeholder {
+  color: var(--transparent-font);
+}
+
+.city_search {
+  width: 30px;
+  height: 30px;
+  background-image: url(../../assets/images/magnifier.svg);
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
 }

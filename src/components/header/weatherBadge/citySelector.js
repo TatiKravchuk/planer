@@ -1,4 +1,5 @@
 import { useState } from "react";
+import style from "./weatherBadge.module.css"
 
 function CitySelector({ onSelect }) {
   const [query, setQuery] = useState("");
@@ -25,25 +26,26 @@ function CitySelector({ onSelect }) {
   };
 
   return (
-    <div>
+    <div className={style.selector_wrapper}>
       <label htmlFor="city"></label>
       <input
         id="city"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Введите название города"
+        className={style.city_input}
       />
-      <button onClick={handleSearch}>🔍</button>
+      <button onClick={handleSearch} className={style.city_search}></button>
 
       {loading && <p>Загрузка...</p>}
 
       {visible && results.length > 0 && (
-        <ul>
+        <ul className={style.city_option}>
           {results.map(city => (
             <li key={city.id} onClick={() => {
-              onSelect(city); // передаём выбранный город наверх
-              setVisible(false); // скрываем список
-              setQuery(city.name); // заполняем поле
+              onSelect(city);
+              setVisible(false);
+              setQuery(city.name);
             }}>
               {city.name}, {city.admin1}, {city.country}
             </li>

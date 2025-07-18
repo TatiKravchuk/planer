@@ -1,0 +1,14 @@
+.react-calendar {
+  border-color: var(--main-color);
+  border-radius: var(--main-border-radius);
+  background-color: var(--background-color);
+}
+
+.react-calendar__navigation__label {
+  font-family: var(--main-font);
+  color: var(--dark-font);
+}
+
+.react-calendar__tile	{
+  font-family: var(--main-font);
+}

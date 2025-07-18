@@ -33,17 +33,6 @@ useEffect(() => {
 }, []);
 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (visible && panelRef.current && !panelRef.current.contains(event.target)) {
-        onClose();
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [visible, onClose]);
-
-  useEffect(() => {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   const taskDates = JSON.parse(localStorage.getItem("taskDates")) || {};
 
@@ -70,6 +59,7 @@ useEffect(() => {
   if (savedCity && !selectedCityInfo) {
     setSelectedCityInfo({ name: savedCity });
   }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [selectedCityInfo]);
 
 return (
@@ -77,7 +67,16 @@ return (
     {showPanel && (
       <div ref={panelRef} className={`${style.panel} ${visible ? style.open : ""}`}>
         <button className={style.close} onClick={onClose}>✖</button>
-
+        <div className={style.themeSelector}>
+          <label htmlFor="theme">Изменить тему:</label>
+          <select id="theme" value={theme} onChange={handleThemeChange}>
+            <option value="default">Деловой</option>
+            <option value="dark">Ночной</option>
+            <option value="brown">Кофе</option>
+            <option value="orange">Закат</option>
+            <option value="pink">Принцесса</option>
+          </select>
+        </div>
         <div className={style.content}>
           <div className={style.calendar}>
             <PlannerCalendar onSelectDate={setSelectedDate} />
@@ -92,7 +91,7 @@ return (
             localStorage.setItem("selectedCity", city.name);}}
           />
           <div className={style.events}>
-            <h3>Задачи на {selectedDate.toLocaleDateString("ru-RU")}</h3>
+            <h3 className={style.events_title}>Задачи на {selectedDate.toLocaleDateString("ru-RU")}</h3>
             {tasksForDate.length === 0 ? (
               <p>Нет задач на выбранную дату</p>
             ) : (
@@ -105,19 +104,8 @@ return (
               </ul>
             )}
           </div>
-        </div>
-
-        <div className={style.themeSelector}>
-          <label htmlFor="theme">Изменить тему:</label>
-          <select id="theme" value={theme} onChange={handleThemeChange}>
-            <option value="default">Деловой</option>
-            <option value="dark">Ночной</option>
-            <option value="brown">Кофе</option>
-            <option value="orange">Закат</option>
-            <option value="pink">Принцесса</option>
-          </select>
-        </div>
       </div>
+        </div>
     )}
 
     <TaskInfoPanel
