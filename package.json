@@ -22,7 +22,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "proxy": "https://ipapi.co",
   "eslintConfig": {
     "extends": [
       "react-app",
