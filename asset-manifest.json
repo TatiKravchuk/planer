@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/planer/static/css/main.5740b373.css",
-    "main.js": "/planer/static/js/main.b3c62d84.js",
+    "main.css": "/planer/static/css/main.893fd738.css",
+    "main.js": "/planer/static/js/main.940cfbf6.js",
     "static/js/453.ef03b5c0.chunk.js": "/planer/static/js/453.ef03b5c0.chunk.js",
     "static/media/Pacifico.ttf": "/planer/static/media/Pacifico.c0d735fc04154e03a691.ttf",
     "static/media/FlowerShop.png": "/planer/static/media/FlowerShop.10fc2d5c1f246ec242a2.png",
@@ -15,15 +15,18 @@
     "static/media/checkmarkRound.svg": "/planer/static/media/checkmarkRound.47713145cc93bbfe3ba8.svg",
     "static/media/star.svg": "/planer/static/media/star.8a9fa46e6a054fc1d4a8.svg",
     "static/media/menu.svg": "/planer/static/media/menu.50bc470e3baacffca548.svg",
+    "static/media/magnifier.svg": "/planer/static/media/magnifier.7b4e0e79357c29e9b7d2.svg",
     "static/media/exclamationMark.svg": "/planer/static/media/exclamationMark.ee47fda2c42c2a6842c1.svg",
     "index.html": "/planer/index.html",
+    "static/media/house.svg": "/planer/static/media/house.73d071b0a57f8b73dd25.svg",
+    "static/media/house_black.svg": "/planer/static/media/house_black.b556431f0245390eadc1.svg",
     "static/media/time.svg": "/planer/static/media/time.ab9f5116e1eaaa3cfd16.svg",
-    "main.5740b373.css.map": "/planer/static/css/main.5740b373.css.map",
-    "main.b3c62d84.js.map": "/planer/static/js/main.b3c62d84.js.map",
+    "main.893fd738.css.map": "/planer/static/css/main.893fd738.css.map",
+    "main.940cfbf6.js.map": "/planer/static/js/main.940cfbf6.js.map",
     "453.ef03b5c0.chunk.js.map": "/planer/static/js/453.ef03b5c0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5740b373.css",
-    "static/js/main.b3c62d84.js"
+    "static/css/main.893fd738.css",
+    "static/js/main.940cfbf6.js"
   ]
 }
