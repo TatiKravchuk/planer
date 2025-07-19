@@ -120,6 +120,11 @@ useEffect(() => {
               Сапёр
             </Link>
           </li>
+          <li className={style.calculator}>
+            <Link to="/calculator" className={style.calculator_link} target="_blank">
+              Калькулятор
+            </Link>
+          </li>
         </ul>
         )}
       </div>

@@ -8,6 +8,7 @@ import Navbar from './components/navbar/navbar';
 import AllTasks from './components/main/allTasks/allTasks';
 import TaskPanel from './components/taskPanel/taskPanel';
 import Sapper from './components/sapper/sapper';
+import Calculator from "./components/calculator/calculator";
 
 function MainApp() {
   const [currentFilter, setCurrentFilter] = useState('all');
@@ -73,6 +74,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainApp />} />
         <Route path="/sapper" element={<Sapper />} />
+        <Route path="/calculator" element={<Calculator />} />
       </Routes>
     </HashRouter>
   );

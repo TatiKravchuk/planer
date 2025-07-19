@@ -1,0 +1,134 @@
+.calculator {
+  width: 350px;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+}
+
+.calculator_input {
+  width: 100%;
+  min-width: 370px;
+  height: 50px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 30px;
+  text-align: right;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(240, 240, 240);
+}
+
+.calculator_input_error {
+  width: 100%;
+  min-width: 370px;
+  height: 50px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 30px;
+  text-align: right;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(240, 240, 240);
+  color: red;
+  font-weight: bold;
+}
+
+.calculator_buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 70px);
+  gap: 5px;
+}
+
+.calculator_button {
+  padding: 10px;
+  height: 70px;
+  width: 70px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.calculator_button_number {
+  background-color: #ffffff;
+  border: 2px solid #d9d9d9;
+}
+
+.calculator_button_number:hover {
+  background-color: #d9d9d9;
+}
+
+.calculator_button_number:active {
+  background-color: #b8b8b8;
+}
+
+.calculator_button_trig {
+  background-color: #d3effc;
+  border: 2px solid #81d4fa;
+}
+
+.calculator_button_trig:hover {
+  background-color: #81d4fa;
+}
+
+.calculator_button_trig:active {
+  background-color: #34bdfd;
+}
+
+.calculator_button_math {
+  background-color: #ffffb0;
+  border: 2px solid #fefe63;
+}
+
+.calculator_button_math:hover {
+  background-color: #fefe63;
+}
+
+.calculator_button_math:active {
+  background-color: #ffff00;
+}
+
+.calculator_button_equal {
+  background-color: #72ff77;
+  color: white;
+  border: 2px solid #48fc51;
+}
+
+.calculator_button_equal:hover {
+  background-color: #48fc51;
+}
+
+.calculator_button_equal:active {
+  background-color: #03ff0f;
+}
+
+.calculator_extra_buttons {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.calculator_extra_button {
+  display: inline-block;
+  min-width: 70px;
+  font-size: 20px;
+  padding: 10px;
+  background-color: #ff6f6f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.calculator_extra_button:hover {
+  background-color: #ff4646;
+}
+
+.calculator_extra_button:active {
+  background-color: #ff1d1d;
+}

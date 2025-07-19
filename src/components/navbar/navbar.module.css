@@ -203,7 +203,20 @@ background-image: url(../assets/images/star.svg);
   background-position: left center;
 }
 
+.calculator {
+  background-image: url(../assets/images/calculator.png);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: left center;
+}
+
 .sapper_link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.calculator_link {
   text-decoration: none;
   color: inherit;
   cursor: pointer;

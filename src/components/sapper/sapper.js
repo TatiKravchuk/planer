@@ -230,12 +230,12 @@ useEffect(() => {
           Количество бомб:
           <input ref={mineRef} type="number" id="mineCount" min="1" max="50" defaultValue="10" />
         </label>
-        <button id="startGame">Начать игру</button>
+        <button className={style.sapper_button} id="startGame">Начать игру</button>
       </div>
 
-      <dialog ref={dialogRef} id="dialog">
+      <dialog ref={dialogRef} id="dialog" className={style.sapper_dialog}>
         <p></p>
-        <button id="dialogButton">OK</button>
+        <button className={style.sapper_button} id="dialogButton">OK</button>
       </dialog>
 
       <div ref={boardRef} id="board" className={style.board}></div>
