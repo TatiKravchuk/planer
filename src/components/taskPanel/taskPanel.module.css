@@ -71,7 +71,7 @@
 }
 
 .events ul {
-  height: calc(100vh - 510px);
+  height: calc(100vh - 500px);
   padding: 5px;
   border: 1px solid var(--main-color);
   border-radius: var(--main-border-radius);

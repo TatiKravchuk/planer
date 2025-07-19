@@ -1,6 +1,7 @@
 .marked {
-  background-color: var(--add-color);
   border-radius: 6px;
+  border: 1px solid var(--main-color) !important;
+  padding: 5px 6px 15px 6px !important;
 }
 
 .dot {

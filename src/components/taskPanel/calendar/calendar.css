@@ -11,4 +11,34 @@
 
 .react-calendar__tile	{
   font-family: var(--main-font);
+  height: 38px;
+  padding: 5px;
+}
+
+.react-calendar__tile:hover {
+  border-radius: var(--main-border-radius);
+  background-color: var(--main-color) !important;
+  color: var(--light-font);
+}
+
+.react-calendar__tile--active {
+  box-sizing: border-box;
+  padding: 0 !important;
+  border-radius: var(--main-border-radius);
+  background-color: var(--add-color) !important;
+  border: 2px solid var(--main-color) !important;
+  color: var(--dark-font) !important;
+}
+
+.react-calendar__tile--active:hover {
+  color: var(--light-font) !important;
+}
+
+.react-calendar__tile--now {
+  border-radius: var(--main-border-radius);
+  background-color: var(--add-color) !important;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #d10000 !important;
 }

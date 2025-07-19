@@ -1,7 +1,7 @@
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
 import style from "./calendar.module.css"
 import "./calendar.css"
+import "react-calendar/dist/Calendar.css";
 import { useState } from "react";
 
 function PlannerCalendar({ onSelectDate }) {
