@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import './App.css';
 
@@ -69,12 +69,12 @@ function MainApp() {
 
 function App() {
   return (
-    <BrowserRouter basename="/planer">
+    <HashRouter>
       <Routes>
         <Route path="/" element={<MainApp />} />
         <Route path="/sapper" element={<Sapper />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
