@@ -1,36 +1,38 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import './App.css';
+
 import Add from './components/main/add/add';
 import Header from './components/header/header';
 import Navbar from './components/navbar/navbar';
 import AllTasks from './components/main/allTasks/allTasks';
 import TaskPanel from './components/taskPanel/taskPanel';
+import Sapper from './components/sapper/sapper';
 
-function App() {
+function MainApp() {
   const [currentFilter, setCurrentFilter] = useState('all');
-    const [panelOpen, setPanelOpen] = useState(false);
-    const [selectedCityInfo, setSelectedCityInfo] = useState(null);
-    const [weatherText, setWeatherText] = useState("");
-    const [tasks, setTasks] = useState(
-      JSON.parse(localStorage.getItem("tasks")) || []
-    );
-
-    useEffect(() => {
-  const cached = JSON.parse(localStorage.getItem("weather_manual_cache"));
-  if (cached?.text) {
-    setWeatherText(cached.text);
-  }
-}, []);
-
-const updateTaskText = (id, newText) => {
-  if (!Array.isArray(tasks)) return;
-
-  const updated = tasks.map(t =>
-    t.id === id ? { ...t, text: newText } : t
+  const [panelOpen, setPanelOpen] = useState(false);
+  const [selectedCityInfo, setSelectedCityInfo] = useState(null);
+  const [weatherText, setWeatherText] = useState("");
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
   );
-  setTasks(updated);
-  localStorage.setItem("tasks", JSON.stringify(updated));
-};
+
+  useEffect(() => {
+    const cached = JSON.parse(localStorage.getItem("weather_manual_cache"));
+    if (cached?.text) {
+      setWeatherText(cached.text);
+    }
+  }, []);
+
+  const updateTaskText = (id, newText) => {
+    if (!Array.isArray(tasks)) return;
+    const updated = tasks.map(t =>
+      t.id === id ? { ...t, text: newText } : t
+    );
+    setTasks(updated);
+    localStorage.setItem("tasks", JSON.stringify(updated));
+  };
 
   return (
     <div className="App">
@@ -62,6 +64,17 @@ const updateTaskText = (id, newText) => {
         />
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter basename="/planer">
+      <Routes>
+        <Route path="/" element={<MainApp />} />
+        <Route path="/sapper" element={<Sapper />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

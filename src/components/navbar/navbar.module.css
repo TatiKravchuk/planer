@@ -196,6 +196,19 @@ background-image: url(../assets/images/star.svg);
   background-position: left center;
 }
 
+.sapper {
+  background-image: url(../assets/images/mine.png);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: left center;
+}
+
+.sapper_link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
 .show {
   display: flex;
   animation: fadeIn 0.3s ease-in;

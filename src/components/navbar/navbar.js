@@ -1,4 +1,5 @@
 import style from "./navbar.module.css";
+import { Link } from "react-router-dom";
 
 import { useState, useEffect, useRef } from "react";
 
@@ -113,6 +114,11 @@ useEffect(() => {
             className={style.flowershop}
           >
             Flower Shop
+          </li>
+          <li className={style.sapper}>
+            <Link to="/sapper" className={style.sapper_link} target="_blank">
+              Сапёр
+            </Link>
           </li>
         </ul>
         )}
