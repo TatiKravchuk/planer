@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/planer/static/css/main.96f0dd1c.css",
-    "main.js": "/planer/static/js/main.1591c839.js",
+    "main.css": "/planer/static/css/main.f536b277.css",
+    "main.js": "/planer/static/js/main.f662f44b.js",
     "static/js/453.ef03b5c0.chunk.js": "/planer/static/js/453.ef03b5c0.chunk.js",
     "static/media/Pacifico.ttf": "/planer/static/media/Pacifico.c0d735fc04154e03a691.ttf",
     "static/media/FlowerShop.png": "/planer/static/media/FlowerShop.10fc2d5c1f246ec242a2.png",
@@ -23,12 +23,12 @@
     "static/media/house.svg": "/planer/static/media/house.73d071b0a57f8b73dd25.svg",
     "static/media/house_black.svg": "/planer/static/media/house_black.b556431f0245390eadc1.svg",
     "static/media/time.svg": "/planer/static/media/time.ab9f5116e1eaaa3cfd16.svg",
-    "main.96f0dd1c.css.map": "/planer/static/css/main.96f0dd1c.css.map",
-    "main.1591c839.js.map": "/planer/static/js/main.1591c839.js.map",
+    "main.f536b277.css.map": "/planer/static/css/main.f536b277.css.map",
+    "main.f662f44b.js.map": "/planer/static/js/main.f662f44b.js.map",
     "453.ef03b5c0.chunk.js.map": "/planer/static/js/453.ef03b5c0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.96f0dd1c.css",
-    "static/js/main.1591c839.js"
+    "static/css/main.f536b277.css",
+    "static/js/main.f662f44b.js"
   ]
 }
