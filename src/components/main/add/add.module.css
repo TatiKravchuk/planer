@@ -66,6 +66,30 @@
   letter-spacing: 0.5px;
 }
 
+.buttons_for_task {
+  display: flex;
+}
+
+.sort_buttons_add {
+  display: inline-block;
+  margin-left: auto;
+}
+
+.group_picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.group_circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid #ccc;
+}
+
 @media (max-width: 768px) {
   .button_delete {
     display: block;

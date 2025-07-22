@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import style from "./task.module.css";
 import TooltipPortal from "./tooltip/tooltip";
 
-function Task({ text, id, deleteTask, onOpenTask, onTextChange }) {
+function Task({ text, id, deleteTask, onOpenTask, onTextChange, group, handleUpdateGroup }) {
 
   const [isImportant, setisImportant] = useState(JSON.parse(localStorage.getItem("buttonStates"))?.[`${id}-important`] || false);
   const [tooltipVisible, setTooltipVisible] = useState(false);
@@ -10,6 +10,18 @@ function Task({ text, id, deleteTask, onOpenTask, onTextChange }) {
   const [tooltipPos, setTooltipPos] = useState({ top: 0, left: 0 });
   const [tooltipSource, setTooltipSource] = useState('');
   const [taskText, setTaskText] = useState(text);
+  const [localGroup, setLocalGroup] = useState(group || "");
+
+  const groupColorMap = {
+  work: "#007bff",
+  personal: "#f06292",
+  study: "#ffa000",
+  health: "#4caf50",
+  finance: "#00bcd4",
+  events: "#e91e63",
+  travel: "#673ab7",
+  home: "#795548"
+};
 
   useEffect(() => {
   const buttonStates = JSON.parse(localStorage.getItem("buttonStates")) || {};
@@ -159,6 +171,23 @@ useEffect(() => {
   setTaskText(text);
 }, [text]);
 
+useEffect(() => {
+  setLocalGroup(group || "");
+}, [group]);
+
+const handleGroupChange = (newGroup) => {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const index = tasks.findIndex(t => t.id === id);
+  if (index !== -1) {
+    tasks[index].group = newGroup;
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    setLocalGroup(newGroup);
+  }
+    if (typeof handleUpdateGroup === "function") {
+    handleUpdateGroup(id, newGroup);
+  }
+};
+
   return(
     <form className={style.task_box} onClick={onOpenTask}>
       <TooltipPortal
@@ -201,6 +230,22 @@ useEffect(() => {
           onChange={handleDateChange}
           onClick={(e) => e.stopPropagation()}
           ></input>
+          <select
+            className={style.group_selector}
+            value={localGroup}
+            onClick={(e) => e.stopPropagation()}
+            onChange={(e) => handleGroupChange(e.target.value)}
+          >
+            <option value="">Без группы</option>
+            {Object.entries(groupColorMap).map(([key, color]) => (
+              <option key={key} value={key}>{key}</option>
+            ))}
+          </select>
+          <div
+            className={style.task_group_marker}
+            value={localGroup}
+            style={{ backgroundColor: groupColorMap[localGroup] || "#ccc" }}
+          ></div>
         </div>
         <button
         className={style.delete_button}

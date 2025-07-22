@@ -54,6 +54,14 @@ function AllTasks({ currentFilter, tasks, setTasks }) {
     localStorage.setItem("tasks", JSON.stringify(updated));
   };
 
+  const handleUpdateGroup = (id, newGroup) => {
+    const updated = tasks.map(t =>
+      t.id === id ? { ...t, group: newGroup } : t
+    );
+    setTasks(updated);
+    localStorage.setItem("tasks", JSON.stringify(updated));
+  };
+
   return (
     <>
     <div className={style.tasks_list}>
@@ -63,8 +71,10 @@ function AllTasks({ currentFilter, tasks, setTasks }) {
           key={task.id}
           deleteTask={() => deleteTask(task.id)}
           id={task.id}
+          group={task.group}
           onOpenTask={() => handleOpenTask(task.id)}
           onTextChange={updateTaskText}
+          handleUpdateGroup={handleUpdateGroup}
         />
       ))}
     </div>
@@ -73,6 +83,7 @@ function AllTasks({ currentFilter, tasks, setTasks }) {
       visible={!!openedTaskId}
       onClose={() => setOpenedTaskId(null)}
       updateTaskText={updateTaskText}
+      updateTaskGroup={handleUpdateGroup}
     />
     </>
   );

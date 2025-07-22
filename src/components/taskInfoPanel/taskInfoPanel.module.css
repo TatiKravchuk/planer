@@ -39,3 +39,23 @@
   background-color: var(--bg-color);
   color: var(--main-color);
 }
+
+.groupSelectWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.groupCircle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #888;
+}
+
+.groupSelect {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 14px;
+}
