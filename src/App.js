@@ -45,7 +45,7 @@ function MainApp() {
       <div className='main'>
         <Navbar setCurrentFilter={setCurrentFilter} />
         <main className="main_box">
-          <Add />
+          <Add list={tasks} setList={setTasks} />
           <AllTasks
             currentFilter={currentFilter}
             tasks={tasks}

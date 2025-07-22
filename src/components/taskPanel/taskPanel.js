@@ -19,6 +19,8 @@ const [cachedWeatherText, setCachedWeatherText] = useState("");
 
 const cityLabel = selectedCityInfo?.name || "";
 
+const [calendarMonthDate, setCalendarMonthDate] = useState(new Date());
+
 const handleThemeChange = (e) => {
   const selected = e.target.value;
   setTheme(selected);
@@ -73,6 +75,13 @@ useEffect(() => {
   return () => document.removeEventListener("mousedown", handleClickOutside);
 }, [visible, onClose]);
 
+function hasSixWeeks(date) {
+  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+  const adjustedStart = (firstDayOfMonth + 6) % 7;
+  const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+  return Math.ceil((adjustedStart + daysInMonth) / 7) > 5;
+}
+
 return (
   <>
     {showPanel && (
@@ -90,7 +99,10 @@ return (
         </div>
         <div className={style.content}>
           <div className={style.calendar}>
-            <PlannerCalendar onSelectDate={setSelectedDate} />
+            <PlannerCalendar
+              onSelectDate={setSelectedDate}
+              onActiveStartDateChange={({ activeStartDate }) => setCalendarMonthDate(activeStartDate)}
+            />
           </div>
           <div className={style.weatherStatic}>
             <p>{cachedWeatherText}</p>
@@ -106,7 +118,12 @@ return (
             {tasksForDate.length === 0 ? (
               <p>Нет задач на выбранную дату</p>
             ) : (
-              <ul>
+              <ul
+                className={`${style.events_ul}
+                ${hasSixWeeks(calendarMonthDate)
+                ? style.events_extra_height
+                : style.events_normal_height}`}
+              >
                 {tasksForDate.map(task => (
                   <li key={task.id} onClick={() => setOpenedTaskId(task.id)}>
                     {task.text}

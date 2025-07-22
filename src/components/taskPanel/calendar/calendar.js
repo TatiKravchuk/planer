@@ -4,7 +4,7 @@ import "./calendar.css"
 import "react-calendar/dist/Calendar.css";
 import { useState } from "react";
 
-function PlannerCalendar({ onSelectDate }) {
+function PlannerCalendar({ onSelectDate, onActiveStartDateChange }) {
   const [value, setValue] = useState(new Date());
 
 function hasTasksOnDate(date) {
@@ -29,14 +29,19 @@ function hasTasksOnDate(date) {
         }}
         value={value}
         locale="ru-RU"
-          tileClassName={({ date, view }) =>
-            view === "month" && hasTasksOnDate(date) ? style.marked : null
+        tileClassName={({ date, view }) =>
+          view === "month" && hasTasksOnDate(date) ? style.marked : null
+        }
+        tileContent={({ date, view }) =>
+          view === "month" && hasTasksOnDate(date) ? (
+            <div className={style.dot}></div>
+          ) : null
+        }
+        onActiveStartDateChange={(payload) => {
+          if (typeof onActiveStartDateChange === "function") {
+            onActiveStartDateChange(payload);
           }
-          tileContent={({ date, view }) =>
-            view === "month" && hasTasksOnDate(date) ? (
-              <div className={style.dot}></div>
-            ) : null
-          }
+        }}
       />
     </div>
   );

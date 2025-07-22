@@ -16,6 +16,8 @@ function Add({ list, setList }) {
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
 
+    setList(tasks);
+
     document.getElementById("userTask").value = "";
   }
 
@@ -27,7 +29,17 @@ function Add({ list, setList }) {
     <form className={style.current}>
       <input className={style.input_add} type="text" placeholder="Текст задачи" id="userTask"></input>
       <button className={style.button_add} type="submit" onClick={(e) => {saveTask(); refuseReload(e)}}>Добавить задачу</button>
-      <button className={style.button_delete} onClick={(e) => {localStorage.clear(); refuseReload(e)}}>Удалить все задачи</button>
+      <button
+        className={style.button_delete}
+        onClick={(e) => {
+          localStorage.removeItem("tasks");
+          localStorage.removeItem("taskDates");
+          localStorage.removeItem("buttonStates");
+          localStorage.removeItem("expiredTasks");
+          setList([]);
+          refuseReload(e);
+        }}
+      >Удалить все задачи</button>
     </form>
   )
 }

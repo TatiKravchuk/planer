@@ -70,8 +70,15 @@
   margin: 0;
 }
 
-.events ul {
+.events_extra_height {
+  height: calc(100vh - 538px)
+}
+
+.events_normal_height {
   height: calc(100vh - 500px);
+}
+
+.events_ul {
   padding: 5px;
   border: 1px solid var(--main-color);
   border-radius: var(--main-border-radius);
