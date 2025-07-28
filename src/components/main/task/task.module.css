@@ -138,6 +138,19 @@
   width: 110px;
 }
 
+.date_picker_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.task_date_select {
+  padding: 4px 8px;
+  font-size: 14px;
+  border-radius: 6px;
+  margin-right: 6px;
+}
+
 .delete_button {
   display: inline-block;
   position: relative;
